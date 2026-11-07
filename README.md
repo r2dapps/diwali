@@ -1,13 +1,12 @@
 <div align="center">
 
-<img src="banner.svg" alt="Jwala — Pure Light Diwali" width="100%"/>
+<img src="banner.svg" alt="Jwala - Pure Light Diwali" width="100%"/>
 
-# Jwala — Pure Light Diwali
+# Jwala - Pure Light Diwali
 
 ### An interactive festival courtyard and virtual pooja diya celebrating Deepavali with light and sound alone. Zero smoke. Zero particulate pollution. Zero residue.
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-razeltech.github.io%2Fdiwali-b45309?style=for-the-badge)](https://razeltech.github.io/diwali/)
-[![Mirror](https://img.shields.io/badge/Mirror-r2dapps.github.io%2Fdiwali-78350f?style=for-the-badge)](https://r2dapps.github.io/diwali/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-r2dapps.github.io%2Fdiwali-b45309?style=for-the-badge)](https://r2dapps.github.io/diwali/)
 ![Platform](https://img.shields.io/badge/Platform-GitHub_Pages-d97706?style=for-the-badge)
 ![Architecture](https://img.shields.io/badge/Architecture-Single_File_Vanilla-92400e?style=for-the-badge)
 ![Audio Engine](https://img.shields.io/badge/Audio-Procedural_Web_Audio_API-451a03?style=for-the-badge)
@@ -21,7 +20,7 @@
 
 ## Overview
 
-Jwala (ज्वाला) represents the sacred flame. Deepavali marks the timeless celebration of illumination overcoming obscurity. Jwala delivers the visceral ambiance, kinetic energy, and acoustic richness of a classic Diwali courtyard directly within modern web browsers.
+Jwala represents the sacred flame. Deepavali marks the timeless celebration of illumination overcoming obscurity. Jwala delivers the visceral ambiance, kinetic energy, and acoustic richness of a classic Diwali courtyard directly within modern web browsers.
 
 Every flame, spark, ballistic trail, and concussive sound wave is synthesized live using HTML5 Canvas physics and the Web Audio API. No external image sprites, media files, or server runtimes are loaded.
 
@@ -29,7 +28,7 @@ Every flame, spark, ballistic trail, and concussive sound wave is synthesized li
 
 ## Interactive Courtyard Arsenal
 
-The interactive arsenal provides authentic representations of traditional Indian festive fireworks and lamps. Select any instrument from the bottom dock, position it in the courtyard, and bring the phuljhari sparkler to the fuse to initiate ignition.
+The interactive arsenal provides authentic representations of traditional festive fireworks and lamps. Select any instrument from the bottom dock, position it in the courtyard, and bring the phuljhari sparkler to the fuse to initiate ignition.
 
 | Instrument | Class | Mechanics & Visual Character |
 |---|---|---|
@@ -91,14 +90,10 @@ A minimalist, meditative mode centering on a large ceremonial brass lamp. Strips
 ## Technical Architecture
 
 ```
-e-diwali/
-├── index.html        # Unified application runtime (Canvas, Web Audio, UI)
-├── banner.svg        # Vector showcase banner for repository and previews
-├── robots.txt        # Search engine crawler instructions
-├── sitemap.xml       # Canonical XML sitemap for SEO discovery
-├── .nojekyll         # GitHub Pages Jekyll bypass flag
-├── README.md         # Primary documentation (Razeltech)
-└── README.r2dapps.md # Mirror documentation (R2D Apps)
+diwali/
+|-- index.html        # Unified application runtime (Canvas, Web Audio, UI)
+|-- banner.svg        # Vector showcase banner for repository and previews
+`-- .nojekyll         # GitHub Pages Jekyll bypass flag
 ```
 
 - **Canvas Rendering Engine**: Custom 60 FPS particle simulator handling gravity vectors, drag coefficients, spark lifetimes, smoke-free glow diffusion, and additive compositing (`globalCompositeOperation = 'lighter'`).
@@ -112,27 +107,15 @@ e-diwali/
 
 ---
 
-## Repositories & Live Deployments
+## Live Deployment
 
-This project is maintained across dual synchronized repositories:
-
-| Instance | Repository | Live Deployment |
-|---|---|---|
-| **Primary** | [github.com/razeltech/diwali](https://github.com/razeltech/diwali) | [razeltech.github.io/diwali](https://razeltech.github.io/diwali/) |
-| **Mirror** | [github.com/r2dapps/diwali](https://github.com/r2dapps/diwali) | [r2dapps.github.io/diwali](https://r2dapps.github.io/diwali/) |
+- **Application URL**: [https://r2dapps.github.io/diwali/](https://r2dapps.github.io/diwali/)
 
 ---
 
-## Local Execution & Deployment
+## Local Execution
 
-### Local Execution
 Double-click `index.html` to run in any modern desktop browser (Chrome, Firefox, Safari, Edge). An active internet connection is only required on the first launch to load web fonts. Web Audio initializes immediately upon the first user interaction in adherence to browser autoplay policies.
-
-### GitHub Pages Deployment
-1. Navigate to repository **Settings -> Pages**.
-2. Under **Build and deployment**, set **Source** to `Deploy from a branch`.
-3. Select branch `main` and path `/ (root)`.
-4. Save. GitHub Pages will build and publish the live site within sixty seconds.
 
 ---
 
