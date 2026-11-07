@@ -1,0 +1,3218 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full h-full overflow-hidden bg-[#040203]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#040203">
+    <title>Jwala — Pure Light Diwali & Pooja Diya | Interactive Virtual Celebration</title>
+    
+    <!-- Primary Meta Tags & SEO -->
+    <meta name="title" content="Jwala — Pure Light Diwali & Pooja Diya | Interactive Virtual Celebration">
+    <meta name="description" content="Celebrate Diwali online with pure light and real-time synthesized sound. Interactive virtual diyas, sparklers (phuljhari), anaar fountains, chakri, rockets, and garland crackers with zero smoke and zero pollution.">
+    <meta name="keywords" content="diwali, deepavali, e-diwali, virtual diwali, diwali celebration, online diya, pooja diya, eco friendly diwali, green crackers, digital fireworks, phuljhari, anaar, chakri, canvas fireworks, web audio synthesizer, festival of lights">
+    <meta name="author" content="Razeltech">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://razeltech.github.io/diwali/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Jwala — Pure Light Diwali">
+    <meta property="og:url" content="https://razeltech.github.io/diwali/">
+    <meta property="og:title" content="Jwala — Pure Light Diwali & Pooja Diya">
+    <meta property="og:description" content="Celebrate Diwali with pure light and real-time synthesized sound. Interactive virtual diyas, sparklers, and physics-driven crackers with zero smoke.">
+    <meta property="og:image" content="https://razeltech.github.io/diwali/banner.svg">
+    <meta property="og:image:type" content="image/svg+xml">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="420">
+    <meta property="og:image:alt" content="Jwala Pure Light Diwali & Pooja Diya">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://razeltech.github.io/diwali/">
+    <meta name="twitter:title" content="Jwala — Pure Light Diwali & Pooja Diya">
+    <meta name="twitter:description" content="Interactive pure-light Diwali celebration with zero smoke. Virtual diyas, phuljhari sparklers, and sky fireworks with procedural Web Audio.">
+    <meta name="twitter:image" content="https://razeltech.github.io/diwali/banner.svg">
+    <meta name="twitter:image:alt" content="Jwala Pure Light Diwali & Pooja Diya">
+
+    <!-- Schema.org JSON-LD (WebApplication & VisualApplication) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["WebApplication", "VisualApplication"],
+          "@id": "https://razeltech.github.io/diwali/#app",
+          "name": "Jwala — Pure Light Diwali & Pooja Diya",
+          "alternateName": "Jwala Diwali",
+          "url": "https://razeltech.github.io/diwali/",
+          "applicationCategory": "EntertainmentApplication",
+          "operatingSystem": "Any modern web browser",
+          "browserRequirements": "Requires JavaScript and HTML5 Canvas support",
+          "description": "An interactive digital Diwali courtyard featuring virtual diyas, sparklers, and physics-driven crackers powered by HTML5 Canvas and procedural Web Audio API with zero smoke or pollution.",
+          "inLanguage": "en",
+          "image": "https://razeltech.github.io/diwali/banner.svg",
+          "screenshot": "https://razeltech.github.io/diwali/banner.svg",
+          "author": {
+            "@type": "Organization",
+            "name": "Razeltech",
+            "url": "https://github.com/razeltech"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Razeltech",
+            "url": "https://github.com/razeltech"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "featureList": [
+            "Interactive Phuljhari sparkler with dynamic lighting",
+            "Placeable clay Mitti Diyas with fluid flame physics",
+            "Ground spinner Chakri with radial spark ejection",
+            "Anaar spark fountain flowerpot",
+            "Sutli Bomb with physical screen-shake and acoustic echo",
+            "Multi-tube sky shot batteries (12, 30, and 60 shots)",
+            "Consecutive cracker ladi chains (100, 1000, 5000, and 10000 wala)",
+            "Meditative Pooja Diya ambient mode",
+            "100% procedural Web Audio API synthesis without external media files"
+          ]
+        }
+      ]
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #040203;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .font-traditional {
+            font-family: 'Cinzel', serif;
+        }
+        .brass-panel {
+            background: linear-gradient(145deg, rgba(38, 16, 10, 0.92), rgba(16, 6, 4, 0.96));
+            border: 1.5px solid rgba(255, 190, 40, 0.35);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 225, 130, 0.25);
+            backdrop-filter: blur(12px);
+        }
+        .glow-text {
+            text-shadow: 0 0 14px rgba(255, 190, 40, 0.65);
+        }
+        .item-slot {
+            background: rgba(24, 9, 6, 0.75);
+            border: 1px solid rgba(255, 180, 40, 0.22);
+            transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .item-slot:hover {
+            border-color: rgba(255, 200, 60, 0.6);
+            transform: translateY(-2px);
+        }
+        .item-slot.active {
+            background: linear-gradient(145deg, rgba(140, 45, 10, 0.9), rgba(75, 20, 5, 0.95));
+            border: 1.5px solid #FFD700;
+            box-shadow: 0 0 18px rgba(255, 180, 0, 0.45);
+            transform: translateY(-3px) scale(1.03);
+        }
+        .mode-btn.active {
+            background: linear-gradient(135deg, #F59E0B, #B45309);
+            color: #FFFBEB;
+            border-color: #FEF08A;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.55);
+        }
+        /* Screen Shake Effect for Sutli Bomb & Garland Lads */
+        .shake {
+            animation: screenShake 0.35s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        @keyframes screenShake {
+            10%, 90% { transform: translate3d(-4px, 3px, 0); }
+            20%, 80% { transform: translate3d(6px, -4px, 0); }
+            30%, 50%, 70% { transform: translate3d(-8px, -2px, 0); }
+            40%, 60% { transform: translate3d(8px, 4px, 0); }
+        }
+
+        /* Hide scrollbars on the horizontal cracker dock */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        canvas { touch-action: none; }
+        header { top: max(12px, env(safe-area-inset-top)) !important; }
+
+        /* ---- Cracker dock: reliable horizontal scroll on touch + mouse ---- */
+        #crackerDock {
+            position: fixed;
+            left: 0; right: 0;
+            bottom: max(10px, env(safe-area-inset-bottom));
+            z-index: 20;
+            display: flex;
+            justify-content: center;
+            padding: 0 8px;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        #crackerDock.dock-hidden { opacity: 0; }
+        #crackerDock.dock-hidden #dockScroll { pointer-events: none; }
+        #dockScroll {
+            position: relative;
+            pointer-events: auto;
+            display: flex;
+            align-items: stretch;
+            gap: 8px;
+            width: max-content;
+            max-width: 100%;
+            padding: 12px 10px 8px;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-x;
+            overscroll-behavior-x: contain;
+            cursor: grab;
+        }
+        #dockScroll.fade-r { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 30px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 30px), transparent); }
+        #dockScroll.fade-l { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 30px), transparent); mask-image: linear-gradient(to left, #000 calc(100% - 30px), transparent); }
+        #dockScroll.fade-l.fade-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 30px, #000 calc(100% - 30px), transparent); mask-image: linear-gradient(to right, transparent, #000 30px, #000 calc(100% - 30px), transparent); }
+        #dockScroll .item-slot { flex: 0 0 auto; }
+
+        /* Dim the UI when idle so the dark room stays dark */
+        .brass-panel { transition: opacity 0.6s ease; }
+        .ui-dim .brass-panel { opacity: 0.28; }
+    </style>
+</head>
+<body class="relative w-full h-full select-none">
+
+    <!-- Main Interactive Canvas -->
+    <canvas id="diwaliCanvas" class="block w-full h-full cursor-none"></canvas>
+
+    <!-- Ultra-Minimal Top Bar: Brand Logo, Pooja Diya Mode Switch & Sound/Reset Controls -->
+    <header class="fixed top-3 left-3 right-3 md:top-5 md:left-6 md:right-6 flex items-center justify-between pointer-events-none z-20">
+        <!-- Brand Emblem -->
+        <div class="brass-panel px-3 py-2 rounded-2xl flex items-center gap-2 pointer-events-auto">
+            <svg class="w-6 h-6 md:w-7 md:h-7 shrink-0" viewBox="0 0 48 48" fill="none">
+                <path d="M24 6C24 6 33 15 33 23C33 27.9706 28.9706 32 24 32C19.0294 32 15 27.9706 15 23C15 15 24 6 24 6Z" fill="url(#flameGrad)"/>
+                <path d="M24 14C24 14 28.5 19.5 28.5 24C28.5 26.4853 26.4853 28.5 24 28.5C21.5147 28.5 19.5 26.4853 19.5 24C19.5 19.5 24 14 24 14Z" fill="#FFF7D6"/>
+                <path d="M8 31C8 38.732 15.1634 43 24 43C32.8366 43 40 38.732 40 31H8Z" fill="#B83B14" stroke="#FFD700" stroke-width="1.5"/>
+                <defs>
+                    <linearGradient id="flameGrad" x1="24" y1="6" x2="24" y2="32" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#FFD700"/>
+                        <stop offset="1" stop-color="#FF4500"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <h1 class="font-traditional text-amber-400 text-xs md:text-base tracking-widest font-extrabold glow-text leading-none hidden sm:block">JWALA</h1>
+        </div>
+
+        <!-- Center Mode Switch: Courtyard Crackers vs Big Pooja Diya Only -->
+        <div class="brass-panel p-1 rounded-2xl flex items-center gap-1 pointer-events-auto">
+            <button id="courtyardModeBtn" class="mode-btn active px-3 py-1.5 rounded-xl text-xs md:text-sm font-bold text-amber-200 transition flex items-center gap-1.5">
+                <span>Courtyard</span>
+            </button>
+            <button id="poojaModeBtn" class="mode-btn px-3 py-1.5 rounded-xl text-xs md:text-sm font-bold text-amber-200 transition flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-amber-300" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C12 2 17 7.5 17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12C7 7.5 12 2 12 2Z"/>
+                    <path d="M4 18C4 21.3137 7.58172 23 12 23C16.4183 23 20 21.3137 20 18H4Z"/>
+                </svg>
+                <span>Pooja Diya</span>
+            </button>
+        </div>
+
+        <!-- Sound & Reset Controls -->
+        <div class="flex items-center gap-2 pointer-events-auto">
+            <button id="soundToggleBtn" class="brass-panel p-2.5 md:p-3 rounded-2xl text-amber-300 hover:text-amber-100 active:scale-95 transition" title="Toggle Sound">
+                <svg id="soundOnIcon" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                </svg>
+                <svg id="soundOffIcon" class="w-5 h-5 hidden text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                </svg>
+            </button>
+
+            <button id="clearBtn" class="brass-panel p-2.5 md:p-3 rounded-2xl text-amber-300/80 hover:text-amber-100 active:scale-95 transition" title="Reset">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Bottom Traditional Cracker & Diya Arsenal Dock (Hidden in Big Pooja Diya Mode) -->
+    <nav id="crackerDock">
+        <div id="dockScroll" class="brass-panel rounded-3xl no-scrollbar">
+            
+            <!-- 1. Phuljhari (Ignitor Tool) -->
+            <button data-tool="sparkler" class="item-slot active shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <line x1="10" y1="38" x2="34" y2="14" stroke="#D97706" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="20" y1="28" x2="34" y2="14" stroke="#9CA3AF" stroke-width="4.5" stroke-linecap="round"/>
+                    <circle cx="34" cy="14" r="5" fill="#FEF08A"/>
+                    <path d="M34 4V24M24 14H44M27 7L41 21M41 7L27 21" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">Phuljhari</span>
+            </button>
+
+            <!-- 2. Mitti Diya -->
+            <button data-tool="diya" class="item-slot shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <path d="M24 10C24 10 30 16 30 21C30 24.3137 27.3137 27 24 27C20.6863 27 18 24.3137 18 21C18 16 24 10 24 10Z" fill="#F59E0B"/>
+                    <path d="M24 15C24 15 27 19 27 22C27 23.6569 25.6569 25 24 25C22.3431 25 21 23.6569 21 22C21 19 24 15 24 15Z" fill="#FEF9C3"/>
+                    <path d="M10 27C10 34.5 16.5 38 24 38C31.5 38 38 34.5 38 27H10Z" fill="#B45309" stroke="#FBBF24" stroke-width="1.5"/>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">Diya</span>
+            </button>
+
+            <!-- 3. Chakri (Ground Spinner) -->
+            <button data-tool="chakri" class="item-slot shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="26" r="13" fill="#991B1B" stroke="#FBBF24" stroke-width="2"/>
+                    <circle cx="24" cy="26" r="8" fill="#1E40AF" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="3 2"/>
+                    <circle cx="24" cy="26" r="3.5" fill="#FDE047"/>
+                    <path d="M35 20C38 17 41 18 42 14" stroke="#FCD34D" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">Chakri</span>
+            </button>
+
+            <!-- 4. Anaar (Flower Pot) -->
+            <button data-tool="anaar" class="item-slot shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <path d="M24 7C25 11 24 14 24 15" stroke="#FDE047" stroke-width="2" stroke-linecap="round"/>
+                    <polygon points="21,15 27,15 36,39 12,39" fill="#B91C1C" stroke="#FBBF24" stroke-width="1.5"/>
+                    <polygon points="18,24 30,24 33,32 15,32" fill="#F59E0B" opacity="0.85"/>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">Anaar</span>
+            </button>
+
+            <!-- 5. Sutli Bomb -->
+            <button data-tool="sutli" class="item-slot shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <path d="M24 17C24 12 29 10 31 7" stroke="#FDE047" stroke-width="2" stroke-linecap="round"/>
+                    <rect x="14" y="17" width="20" height="21" rx="3" fill="#15803D" stroke="#86EFAC" stroke-width="1.5"/>
+                    <line x1="14" y1="22" x2="34" y2="22" stroke="#DC2626" stroke-width="2"/>
+                    <line x1="14" y1="28" x2="34" y2="28" stroke="#FACC15" stroke-width="1.5"/>
+                    <line x1="14" y1="33" x2="34" y2="33" stroke="#DC2626" stroke-width="2"/>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">Sutli</span>
+            </button>
+
+            <!-- 6. Akash Rocket -->
+            <button data-tool="rocket" class="item-slot shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <line x1="26" y1="18" x2="26" y2="42" stroke="#A16207" stroke-width="2.5" stroke-linecap="round"/>
+                    <polygon points="22,6 16,16 28,16" fill="#FACC15"/>
+                    <rect x="18" y="16" width="8" height="14" fill="#DC2626" stroke="#FDE047" stroke-width="1.2"/>
+                    <path d="M20 30C18 34 15 35 14 37" stroke="#FDE047" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">Rocket</span>
+            </button>
+
+            <!-- 7. 100 Wala Lad -->
+            <button data-tool="wala100" class="item-slot shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <path d="M24 6V12" stroke="#FDE047" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="24" y1="12" x2="24" y2="40" stroke="#F59E0B" stroke-width="2"/>
+                    <rect x="13" y="13" width="9" height="4" rx="1" fill="#DC2626" stroke="#FCA5A5" stroke-width="0.8"/>
+                    <rect x="26" y="16" width="9" height="4" rx="1" fill="#DC2626" stroke="#FCA5A5" stroke-width="0.8"/>
+                    <rect x="13" y="21" width="9" height="4" rx="1" fill="#DC2626" stroke="#FCA5A5" stroke-width="0.8"/>
+                    <rect x="26" y="24" width="9" height="4" rx="1" fill="#DC2626" stroke="#FCA5A5" stroke-width="0.8"/>
+                    <rect x="13" y="29" width="9" height="4" rx="1" fill="#DC2626" stroke="#FCA5A5" stroke-width="0.8"/>
+                    <rect x="26" y="32" width="9" height="4" rx="1" fill="#DC2626" stroke="#FCA5A5" stroke-width="0.8"/>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">100 Wala</span>
+            </button>
+
+            <!-- 8. 1000 Wala Lad -->
+            <button data-tool="wala1000" class="item-slot shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="26" r="14" fill="#991B1B" stroke="#FACC15" stroke-width="2"/>
+                    <circle cx="24" cy="26" r="9" fill="#DC2626" stroke="#FDE047" stroke-width="1.5" stroke-dasharray="2 2"/>
+                    <path d="M24 12V6" stroke="#FDE047" stroke-width="2.2" stroke-linecap="round"/>
+                    <text x="24" y="29" text-anchor="middle" fill="#FEF08A" font-size="8" font-weight="bold">1K</text>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">1000 Wala</span>
+            </button>
+
+            <!-- 9. 5000 Wala Lad -->
+            <button data-tool="wala5000" class="item-slot shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="26" r="15" fill="#7F1D1D" stroke="#F59E0B" stroke-width="2.2"/>
+                    <circle cx="24" cy="26" r="11" fill="#B91C1C" stroke="#FDE047" stroke-width="1.5" stroke-dasharray="3 1.5"/>
+                    <path d="M24 11V5" stroke="#FDE047" stroke-width="2.5" stroke-linecap="round"/>
+                    <text x="24" y="29" text-anchor="middle" fill="#FEF08A" font-size="8" font-weight="bold">5K</text>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">5000 Wala</span>
+            </button>
+
+            <!-- 10. 10,000 Wala Giant Garland -->
+            <button data-tool="wala10000" class="item-slot shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="26" r="16" fill="#450A0A" stroke="#FFD700" stroke-width="2.5"/>
+                    <circle cx="24" cy="26" r="12" fill="#991B1B" stroke="#FACC15" stroke-width="1.8" stroke-dasharray="2 1"/>
+                    <circle cx="24" cy="26" r="7" fill="#DC2626" stroke="#FEF08A" stroke-width="1"/>
+                    <path d="M24 10V4" stroke="#FDE047" stroke-width="2.5" stroke-linecap="round"/>
+                    <text x="24" y="29" text-anchor="middle" fill="#FFFFFF" font-size="7.5" font-weight="bold">10K</text>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">10K Wala</span>
+            </button>
+
+            <!-- 11. 12-Shot Sky Repeater -->
+            <button data-tool="shot12" class="item-slot shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <rect x="12" y="18" width="24" height="20" rx="2" fill="#7C2D12" stroke="#FBBF24" stroke-width="1.8"/>
+                    <line x1="18" y1="18" x2="18" y2="38" stroke="#F59E0B" stroke-width="1.2"/>
+                    <line x1="24" y1="18" x2="24" y2="38" stroke="#F59E0B" stroke-width="1.2"/>
+                    <line x1="30" y1="18" x2="30" y2="38" stroke="#F59E0B" stroke-width="1.2"/>
+                    <path d="M12 24C8 24 7 20 6 17" stroke="#FDE047" stroke-width="2" stroke-linecap="round"/>
+                    <text x="24" y="14" text-anchor="middle" fill="#FDE047" font-size="8" font-weight="bold">12S</text>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">12 Shots</span>
+            </button>
+
+            <!-- 12. 30-Shot Sky Barrage -->
+            <button data-tool="shot30" class="item-slot shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <rect x="9" y="18" width="30" height="20" rx="2" fill="#991B1B" stroke="#FFD700" stroke-width="2"/>
+                    <line x1="15" y1="18" x2="15" y2="38" stroke="#FBBF24" stroke-width="1.2"/>
+                    <line x1="21" y1="18" x2="21" y2="38" stroke="#FBBF24" stroke-width="1.2"/>
+                    <line x1="27" y1="18" x2="27" y2="38" stroke="#FBBF24" stroke-width="1.2"/>
+                    <line x1="33" y1="18" x2="33" y2="38" stroke="#FBBF24" stroke-width="1.2"/>
+                    <path d="M9 24C6 23 5 19 5 16" stroke="#FDE047" stroke-width="2" stroke-linecap="round"/>
+                    <text x="24" y="14" text-anchor="middle" fill="#FFD700" font-size="8" font-weight="bold">30S</text>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">30 Shots</span>
+            </button>
+
+            <!-- 13. 60-Shot Grand Finale Battery -->
+            <button data-tool="shot60" class="item-slot shrink-0 w-16 md:w-20 rounded-2xl py-2 px-1 flex flex-col items-center justify-center">
+                <svg class="w-7 h-7 md:w-9 md:h-9" viewBox="0 0 48 48" fill="none">
+                    <rect x="6" y="17" width="36" height="22" rx="2.5" fill="#581C87" stroke="#FFD700" stroke-width="2.2"/>
+                    <rect x="9" y="22" width="30" height="12" fill="#DC2626" opacity="0.85"/>
+                    <path d="M6 25C3 23 3 19 4 15" stroke="#FDE047" stroke-width="2" stroke-linecap="round"/>
+                    <text x="24" y="13" text-anchor="middle" fill="#FEF08A" font-size="8" font-weight="bold">60S</text>
+                </svg>
+                <span class="text-[10px] font-semibold text-amber-200 mt-1">60 Shots</span>
+            </button>
+
+        </div>
+    </nav>
+
+    <script>
+        /**
+         * ============================================================================
+         * 1. PROCEDURAL WEB AUDIO ENGINE (Zero External MP3s)
+         * Pure Diwali acoustics & Zero-Pollution celebration logic built-in.
+         * Upgraded Chakri rhythmic fizzy spin, Rocket aerodynamic whoosh,
+         * Rapid-fire Garland Lads (100 to 10,000 Wala), and Multi-Shot mortar thumps.
+         * ============================================================================
+         */
+        class DiwaliSoundEngine {
+            constructor() {
+                this.ctx = null;
+                this.muted = false;
+                this.noiseBuffer = null;
+            }
+
+            init() {
+                if (this.ctx) {
+                    if (this.ctx.state === 'suspended') this.ctx.resume();
+                    return;
+                }
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                this.ctx = new AudioCtx();
+
+                // Create 2-second white noise buffer for fire, fuses, and explosions
+                const sampleRate = this.ctx.sampleRate;
+                this.noiseBuffer = this.ctx.createBuffer(1, sampleRate * 2, sampleRate);
+                const output = this.noiseBuffer.getChannelData(0);
+                for (let i = 0; i < sampleRate * 2; i++) {
+                    output[i] = Math.random() * 2 - 1;
+                }
+
+                // Master bus: compressor (so dense lads never clip) + street-echo convolver
+                this.comp = this.ctx.createDynamicsCompressor();
+                this.comp.threshold.value = -16;
+                this.comp.knee.value = 12;
+                this.comp.ratio.value = 6;
+                this.comp.attack.value = 0.002;
+                this.comp.release.value = 0.2;
+                this.comp.connect(this.ctx.destination);
+
+                this.bus = this.ctx.createGain();
+                this.bus.gain.value = 1;
+                this.bus.connect(this.comp);
+
+                const irLen = Math.floor(sampleRate * 1.5);
+                const ir = this.ctx.createBuffer(2, irLen, sampleRate);
+                for (let ch = 0; ch < 2; ch++) {
+                    const d = ir.getChannelData(ch);
+                    for (let i = 0; i < irLen; i++) {
+                        d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / irLen, 3.4);
+                    }
+                }
+                this.verb = this.ctx.createConvolver();
+                this.verb.buffer = ir;
+                this.verb.connect(this.comp);
+                this.trainSources = new Set();
+            }
+
+            // Route a node to the master bus with an optional echo send
+            route(node, wet = 0.15) {
+                node.connect(this.bus);
+                if (wet > 0) {
+                    const send = this.ctx.createGain();
+                    send.gain.value = wet;
+                    node.connect(send);
+                    send.connect(this.verb);
+                }
+            }
+
+            noiseAt(t, dur) {
+                const src = this.ctx.createBufferSource();
+                src.buffer = this.noiseBuffer;
+                src.start(t, Math.random() * Math.max(0, 2 - dur - 0.05), dur);
+                return src;
+            }
+
+            // Burning-fuse sizzle (rocket, sutli, lads, batteries)
+            playFuseHiss(duration = 0.9, vol = 0.05) {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+                const src = this.ctx.createBufferSource();
+                src.buffer = this.noiseBuffer;
+                src.loop = true;
+                const bp = this.ctx.createBiquadFilter();
+                bp.type = 'bandpass';
+                bp.frequency.value = 5200;
+                bp.Q.value = 0.6;
+                const g = this.ctx.createGain();
+                const n = Math.max(8, Math.floor(duration * 45));
+                const curve = new Float32Array(n);
+                for (let i = 0; i < n; i++) curve[i] = vol * (0.35 + Math.random() * 0.9);
+                curve[n - 1] = 0;
+                g.gain.setValueCurveAtTime(curve, now, duration);
+                src.connect(bp);
+                bp.connect(g);
+                this.route(g, 0.05);
+                src.start(now);
+                src.stop(now + duration + 0.02);
+            }
+
+            stopTrains() {
+                if (!this.trainSources) return;
+                this.trainSources.forEach(s => { try { s.stop(); } catch (e) {} });
+                this.trainSources.clear();
+            }
+
+            /**
+             * Cracker-lad train. The whole string is rendered as ONE audio buffer so
+             * that a 100-wala is a clean "tak-tak-tak" and a 10,000-wala is a thunderous roll.
+             *  kind 'thread' -> straight hanging string, steady distinct cracks
+             *  kind 'roll'   -> big coiled roll, builds into a dense machine-gun roar
+             */
+            playCrackerTrain(popCount, duration, weight = 0.4, kind = 'thread', perBeat = 1) {
+                if (this.muted || !this.ctx) return;
+                const sr = this.ctx.sampleRate;
+                const len = Math.floor((duration + 0.5) * sr);
+                const buf = this.ctx.createBuffer(1, len, sr);
+                const d = buf.getChannelData(0);
+
+                const addPop = (s0, amp, w) => {
+                    const L = Math.floor(sr * (0.02 + w * 0.03));
+                    const decC = Math.exp(-1 / ((0.0011 + Math.random() * 0.0008) * sr));
+                    const decB = Math.exp(-1 / ((0.005 + w * 0.012) * sr));
+                    const decT = Math.exp(-1 / (0.011 * sr));
+                    const a = 0.1 + (1 - w) * 0.25;
+                    const f0 = 130 + w * 90;
+                    let ec = 1, eb = 1, et = 1, lp = 0, ph = 0;
+                    const end = Math.min(L, len - s0);
+                    for (let j = 0; j < end; j++) {
+                        const n = Math.random() * 2 - 1;
+                        lp += (n - lp) * a;
+                        let v = n * ec * 0.9 + lp * eb * (1.5 + w * 2.2);
+                        if (w > 0.35) {
+                            ph += 6.2832 * (f0 * Math.exp(-j / (sr * 0.016)) + 42) / sr;
+                            v += Math.sin(ph) * et * w * 1.3;
+                        }
+                        d[s0 + j] += v * amp;
+                        ec *= decC; eb *= decB; et *= decT;
+                    }
+                };
+
+                // One beat every 0.05 s; bigger lads fire several crackers on each beat
+                const STEP = 0.05;
+                const beats = Math.max(1, Math.round(duration / STEP));
+                for (let bi = 0; bi < beats; bi++) {
+                    for (let k = 0; k < perBeat; k++) {
+                        const jitter = perBeat === 1 ? (Math.random() - 0.5) * 0.006 : (Math.random() - 0.5) * 0.03;
+                        const t0 = Math.max(0, bi * STEP + jitter);
+                        const s0 = Math.floor(t0 * sr);
+                        const amp = kind === 'thread' ? (0.5 + Math.random() * 0.5) : (0.3 + Math.random() * 0.6);
+                        addPop(s0, amp, weight * (0.8 + Math.random() * 0.4));
+                    }
+                }
+
+                // Street echo (comb) + soft clip
+                const ed = Math.floor(0.075 * sr);
+                for (let i = ed; i < len; i++) d[i] += d[i - ed] * 0.17;
+                for (let i = 0; i < len; i++) d[i] = Math.tanh(d[i] * 0.85);
+
+                const src = this.ctx.createBufferSource();
+                src.buffer = buf;
+                const g = this.ctx.createGain();
+                g.gain.value = kind === 'roll' ? 0.8 : 0.72;
+                src.connect(g);
+                this.route(g, 0.1);
+                this.trainSources.add(src);
+                src.onended = () => this.trainSources.delete(src);
+                src.start(this.ctx.currentTime);
+            }
+
+            // Lad finale: the heavy head cracker at the very end of the string
+            playLadFinale(tier = 1) {
+                this.playSutliBomb(0.75 + tier * 0.22);
+                this.playChitChitCluster(8 + tier * 4, 0.5);
+            }
+
+            // Real sutli bomb: sharp paper-tearing CRACK + chest thump + street echo
+            playSutliBomb(size = 1) {
+                if (this.muted || !this.ctx) return;
+                const t = this.ctx.currentTime;
+
+                // 1. Instant sharp crack
+                const crack = this.noiseAt(t, 0.12);
+                const hp = this.ctx.createBiquadFilter();
+                hp.type = 'highpass';
+                hp.frequency.value = 1100;
+                const cg = this.ctx.createGain();
+                cg.gain.setValueAtTime(1.0 * size, t);
+                cg.gain.exponentialRampToValueAtTime(0.0001, t + 0.07);
+                crack.connect(hp); hp.connect(cg);
+                this.route(cg, 0.3);
+
+                // 2. Body of the blast (tight, drops fast)
+                const body = this.noiseAt(t, 0.45);
+                const lp = this.ctx.createBiquadFilter();
+                lp.type = 'lowpass';
+                lp.frequency.setValueAtTime(2800, t);
+                lp.frequency.exponentialRampToValueAtTime(180, t + 0.3);
+                const bg = this.ctx.createGain();
+                bg.gain.setValueAtTime(0.75 * size, t);
+                bg.gain.exponentialRampToValueAtTime(0.0001, t + 0.32);
+                body.connect(lp); lp.connect(bg);
+                this.route(bg, 0.35);
+
+                // 3. Short thump
+                const o = this.ctx.createOscillator();
+                const og = this.ctx.createGain();
+                o.type = 'sine';
+                o.frequency.setValueAtTime(115, t);
+                o.frequency.exponentialRampToValueAtTime(34, t + 0.2);
+                og.gain.setValueAtTime(0.75 * size, t);
+                og.gain.exponentialRampToValueAtTime(0.0001, t + 0.24);
+                o.connect(og);
+                this.route(og, 0.2);
+                o.start(t); o.stop(t + 0.26);
+
+                // 4. Wall slap-back echo
+                const slap = this.noiseAt(t + 0.11, 0.2);
+                const sl = this.ctx.createBiquadFilter();
+                sl.type = 'lowpass';
+                sl.frequency.value = 1400;
+                const sg = this.ctx.createGain();
+                sg.gain.setValueAtTime(0.0001, t);
+                sg.gain.setValueAtTime(0.32 * size, t + 0.11);
+                sg.gain.exponentialRampToValueAtTime(0.0001, t + 0.38);
+                slap.connect(sl); sl.connect(sg);
+                this.route(sg, 0.3);
+
+                // 5. Torn paper bits landing
+                for (let i = 0; i < 6; i++) {
+                    const tt = t + 0.1 + Math.random() * 0.3;
+                    const bit = this.noiseAt(tt, 0.03);
+                    const bf = this.ctx.createBiquadFilter();
+                    bf.type = 'bandpass';
+                    bf.frequency.value = 3000 + Math.random() * 3000;
+                    bf.Q.value = 3;
+                    const bgn = this.ctx.createGain();
+                    bgn.gain.setValueAtTime(0.06, tt);
+                    bgn.gain.exponentialRampToValueAtTime(0.0001, tt + 0.03);
+                    bit.connect(bf); bf.connect(bgn);
+                    this.route(bgn, 0.05);
+                }
+            }
+
+            // Aerial shell break: soft-edged crack, deep chest "dhoom", rolling echo off the buildings
+            playBurstBoom(size = 1) {
+                if (this.muted || !this.ctx) return;
+                const t = this.ctx.currentTime + 0.14; // sound lags the flash, like real distance
+
+                // Soft saturation so the low end hits without harshness
+                const shaper = this.ctx.createWaveShaper();
+                const curve = new Float32Array(256);
+                for (let i = 0; i < 256; i++) { const x = i / 128 - 1; curve[i] = Math.tanh(x * 2.2); }
+                shaper.curve = curve;
+
+                // 1. Crack (band-limited, not hissy)
+                const crack = this.noiseAt(t, 0.12);
+                const cb = this.ctx.createBiquadFilter();
+                cb.type = 'bandpass'; cb.frequency.value = 1300; cb.Q.value = 0.55;
+                const cl = this.ctx.createBiquadFilter();
+                cl.type = 'lowpass'; cl.frequency.value = 5000;
+                const cg = this.ctx.createGain();
+                cg.gain.setValueAtTime(0.0001, t);
+                cg.gain.linearRampToValueAtTime(0.7 * size, t + 0.004);
+                cg.gain.exponentialRampToValueAtTime(0.0001, t + 0.1);
+                crack.connect(cb); cb.connect(cl); cl.connect(cg);
+                this.route(cg, 0.4);
+
+                // 2. Body: low rolling thunder of the shell
+                const body = this.noiseAt(t, 1.2);
+                const bl = this.ctx.createBiquadFilter();
+                bl.type = 'lowpass';
+                bl.frequency.setValueAtTime(1400, t);
+                bl.frequency.exponentialRampToValueAtTime(90, t + 1.0);
+                const bg = this.ctx.createGain();
+                bg.gain.setValueAtTime(0.0001, t);
+                bg.gain.linearRampToValueAtTime(0.6 * size, t + 0.012);
+                bg.gain.exponentialRampToValueAtTime(0.0001, t + 1.1);
+                body.connect(bl); bl.connect(bg);
+                this.route(bg, 0.55);
+
+                // 3. Deep chest thump
+                const o = this.ctx.createOscillator();
+                const og = this.ctx.createGain();
+                o.type = 'sine';
+                o.frequency.setValueAtTime(78, t);
+                o.frequency.exponentialRampToValueAtTime(26, t + 0.55);
+                og.gain.setValueAtTime(0.0001, t);
+                og.gain.linearRampToValueAtTime(0.85 * size, t + 0.008);
+                og.gain.exponentialRampToValueAtTime(0.0001, t + 0.6);
+                o.connect(shaper); shaper.connect(og);
+                this.route(og, 0.3);
+                o.start(t); o.stop(t + 0.65);
+            }
+
+            // Sharp metallic spark pop
+            playSparkPop(freq = 2800, vol = 0.04) {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+                const src = this.ctx.createBufferSource();
+                src.buffer = this.noiseBuffer;
+
+                const filter = this.ctx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.setValueAtTime(freq + Math.random() * 1400, now);
+                filter.Q.setValueAtTime(6, now);
+
+                const gain = this.ctx.createGain();
+                gain.gain.setValueAtTime(vol, now);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.045);
+
+                src.connect(filter);
+                filter.connect(gain);
+                gain.connect(this.ctx.destination);
+
+                src.start(now, Math.random() * 1.5, 0.05);
+            }
+
+            // Soft warm ignition chime for Diya
+            playDiyaLit() {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+                const freqs = [528, 660, 792, 1056];
+                freqs.forEach((f, idx) => {
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(f, now + idx * 0.05);
+                    gain.gain.setValueAtTime(0.06, now + idx * 0.05);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.05 + 0.9);
+                    osc.connect(gain);
+                    gain.connect(this.ctx.destination);
+                    osc.start(now + idx * 0.05);
+                    osc.stop(now + idx * 0.05 + 0.95);
+                });
+            }
+
+            // Sacred Temple Bell Resonance for Big Pooja Diya
+            playPoojaBell() {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+                const partials = [
+                    { freq: 528, amp: 0.16, dur: 3.2 },
+                    { freq: 1056, amp: 0.09, dur: 2.4 },
+                    { freq: 1584, amp: 0.05, dur: 1.8 },
+                    { freq: 2217, amp: 0.03, dur: 1.1 }
+                ];
+                partials.forEach(p => {
+                    const osc = this.ctx.createOscillator();
+                    const gain = this.ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(p.freq, now);
+                    gain.gain.setValueAtTime(p.amp, now);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, now + p.dur);
+                    osc.connect(gain);
+                    gain.connect(this.ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + p.dur + 0.05);
+                });
+            }
+
+            // Anaar Fountain Roar
+            playAnaarRoar(duration = 3.6) {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+                const src = this.ctx.createBufferSource();
+                src.buffer = this.noiseBuffer;
+                src.loop = true;
+
+                const filter = this.ctx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.setValueAtTime(1100, now);
+                filter.frequency.linearRampToValueAtTime(2200, now + duration * 0.5);
+                filter.frequency.linearRampToValueAtTime(800, now + duration);
+                filter.Q.setValueAtTime(1.4, now);
+
+                const gain = this.ctx.createGain();
+                gain.gain.setValueAtTime(0.01, now);
+                gain.gain.linearRampToValueAtTime(0.22, now + 0.3);
+                gain.gain.setValueAtTime(0.22, now + duration - 0.5);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+                src.connect(filter);
+                filter.connect(gain);
+                gain.connect(this.ctx.destination);
+
+                src.start(now);
+                src.stop(now + duration);
+            }
+
+            // Upgraded Chakri Sound: Rhythmic rapid fizzy-whoosh pulsing (like real spinning gunpowder coil)
+            playChakriSpin(duration = 3.6) {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+
+                const src = this.ctx.createBufferSource();
+                src.buffer = this.noiseBuffer;
+                src.loop = true;
+
+                // Bandpass filter sweeping up as spin accelerates
+                const filter = this.ctx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.setValueAtTime(900, now);
+                filter.frequency.exponentialRampToValueAtTime(2400, now + duration * 0.6);
+                filter.frequency.exponentialRampToValueAtTime(1100, now + duration);
+                filter.Q.setValueAtTime(3.2, now);
+
+                // LFO to modulate volume at spinning rotation speed (whir-whir-whir)
+                const lfo = this.ctx.createOscillator();
+                lfo.type = 'sine';
+                lfo.frequency.setValueAtTime(8, now);
+                lfo.frequency.linearRampToValueAtTime(22, now + duration * 0.7);
+                lfo.frequency.linearRampToValueAtTime(10, now + duration);
+
+                const lfoDepth = this.ctx.createGain();
+                lfoDepth.gain.setValueAtTime(0.06, now);
+
+                const masterGain = this.ctx.createGain();
+                masterGain.gain.setValueAtTime(0.09, now);
+                masterGain.gain.linearRampToValueAtTime(0.15, now + 0.3);
+                masterGain.gain.setValueAtTime(0.14, now + duration - 0.5);
+                masterGain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+                lfo.connect(lfoDepth);
+                lfoDepth.connect(masterGain.gain);
+
+                src.connect(filter);
+                filter.connect(masterGain);
+                masterGain.connect(this.ctx.destination);
+
+                src.start(now);
+                lfo.start(now);
+                src.stop(now + duration);
+                lfo.stop(now + duration);
+            }
+
+            // Real Diwali rocket: ignition "pfffft", then a rough, crackling motor burn that
+            // thins out with distance as the rocket climbs; length matches the real flight time.
+            playRocketLaunch(duration = 1.6) {
+                if (this.muted || !this.ctx) return;
+                const t = this.ctx.currentTime;
+                const D = Math.max(0.7, duration);
+                const burn = D * 0.94;
+
+                // 1. Ignition puff
+                const puff = this.noiseAt(t, 0.2);
+                const pf = this.ctx.createBiquadFilter();
+                pf.type = 'bandpass';
+                pf.frequency.value = 2200;
+                pf.Q.value = 0.8;
+                const pg = this.ctx.createGain();
+                pg.gain.setValueAtTime(0.0001, t);
+                pg.gain.linearRampToValueAtTime(0.32, t + 0.02);
+                pg.gain.exponentialRampToValueAtTime(0.0001, t + 0.18);
+                puff.connect(pf); pf.connect(pg);
+                this.route(pg, 0.1);
+
+                // 2. Motor burn: rough hiss that rises slightly in pitch and fades with distance
+                const motor = this.ctx.createBufferSource();
+                motor.buffer = this.noiseBuffer;
+                motor.loop = true;
+                const mf = this.ctx.createBiquadFilter();
+                mf.type = 'bandpass';
+                mf.frequency.setValueAtTime(1500, t);
+                mf.frequency.exponentialRampToValueAtTime(2700, t + burn);
+                mf.Q.value = 0.7;
+
+                const rattle = this.ctx.createGain();
+                rattle.gain.value = 0.68;
+                const lfo = this.ctx.createOscillator();
+                lfo.type = 'sawtooth';
+                lfo.frequency.setValueAtTime(36, t);
+                lfo.frequency.linearRampToValueAtTime(64, t + burn);
+                const lfoDepth = this.ctx.createGain();
+                lfoDepth.gain.value = 0.32;
+                lfo.connect(lfoDepth);
+                lfoDepth.connect(rattle.gain);
+
+                const mg = this.ctx.createGain();
+                mg.gain.setValueAtTime(0.0001, t);
+                mg.gain.linearRampToValueAtTime(0.34, t + 0.07);
+                mg.gain.linearRampToValueAtTime(0.2, t + burn * 0.55);
+                mg.gain.linearRampToValueAtTime(0.07, t + burn);
+                mg.gain.exponentialRampToValueAtTime(0.0001, t + D);
+
+                motor.connect(mf); mf.connect(rattle); rattle.connect(mg);
+                this.route(mg, 0.15);
+                motor.start(t); lfo.start(t);
+                motor.stop(t + D + 0.05); lfo.stop(t + D + 0.05);
+
+                // 3. Low roar of the propellant
+                const roar = this.ctx.createBufferSource();
+                roar.buffer = this.noiseBuffer;
+                roar.loop = true;
+                const rf = this.ctx.createBiquadFilter();
+                rf.type = 'lowpass';
+                rf.frequency.setValueAtTime(900, t);
+                rf.frequency.exponentialRampToValueAtTime(300, t + burn);
+                const rg = this.ctx.createGain();
+                rg.gain.setValueAtTime(0.0001, t);
+                rg.gain.linearRampToValueAtTime(0.26, t + 0.08);
+                rg.gain.exponentialRampToValueAtTime(0.03, t + burn);
+                rg.gain.exponentialRampToValueAtTime(0.0001, t + D);
+                roar.connect(rf); rf.connect(rg);
+                this.route(rg, 0.1);
+                roar.start(t); roar.stop(t + D + 0.05);
+
+                // 4. Faint thin whistle on the stick
+                const w = this.ctx.createOscillator();
+                const wg = this.ctx.createGain();
+                w.type = 'triangle';
+                w.frequency.setValueAtTime(1250, t);
+                w.frequency.exponentialRampToValueAtTime(2100, t + burn);
+                wg.gain.setValueAtTime(0.0001, t);
+                wg.gain.linearRampToValueAtTime(0.011, t + 0.15);
+                wg.gain.exponentialRampToValueAtTime(0.0001, t + burn);
+                w.connect(wg);
+                this.route(wg, 0.05);
+                w.start(t); w.stop(t + D);
+            }
+
+            // Sizzling "Chit-Chit-Chit" Crackling Star Cluster Sound after Sky Bursts
+            playChitChitCluster(count = 16, spreadDuration = 0.9) {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+
+                for (let i = 0; i < count; i++) {
+                    const delay = (Math.pow(Math.random(), 1.3)) * spreadDuration;
+                    const t = now + delay;
+
+                    const src = this.ctx.createBufferSource();
+                    src.buffer = this.noiseBuffer;
+
+                    const hp = this.ctx.createBiquadFilter();
+                    hp.type = 'bandpass';
+                    hp.frequency.setValueAtTime(2600 + Math.random() * 2400, t);
+                    hp.Q.setValueAtTime(4.5, t);
+
+                    const g = this.ctx.createGain();
+                    const amp = 0.08 + Math.random() * 0.1;
+                    g.gain.setValueAtTime(amp, t);
+                    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.032);
+
+                    src.connect(hp);
+                    hp.connect(g);
+                    g.connect(this.ctx.destination);
+
+                    src.start(t, Math.random() * 1.2, 0.035);
+                }
+            }
+
+            // Deep Mortar Tube Launch Thump (for 12, 30, 60 Multi-Shot Sky Repeaters)
+            playTubeThump() {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(38, now + 0.16);
+
+                gain.gain.setValueAtTime(0.32, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+
+                osc.connect(gain);
+                gain.connect(this.ctx.destination);
+                osc.start(now);
+                osc.stop(now + 0.19);
+            }
+
+            // Authentic "Phat-Phat-Phat" Staccato Garland Lad Cracker Sound (100 / 1K / 5K / 10K Wala)
+            playLadCrackerPop(intensity = 0.8) {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+
+                // 1. Sharp, dry gunpowder paper whip-crack (high-pressure transient)
+                const noiseSrc = this.ctx.createBufferSource();
+                noiseSrc.buffer = this.noiseBuffer;
+
+                const bandpass = this.ctx.createBiquadFilter();
+                bandpass.type = 'bandpass';
+                bandpass.frequency.setValueAtTime(1650 + Math.random() * 1900, now);
+                bandpass.Q.setValueAtTime(0.85, now);
+
+                const gain = this.ctx.createGain();
+                gain.gain.setValueAtTime(0.55 * intensity, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.055);
+
+                noiseSrc.connect(bandpass);
+                bandpass.connect(gain);
+                gain.connect(this.ctx.destination);
+
+                noiseSrc.start(now, Math.random() * 1.4, 0.06);
+
+                // 2. Crisp street-echo slap & mid-bass punch
+                const punch = this.ctx.createOscillator();
+                const punchGain = this.ctx.createGain();
+                punch.type = 'sine';
+                punch.frequency.setValueAtTime(260 + Math.random() * 90, now);
+                punch.frequency.exponentialRampToValueAtTime(48, now + 0.05);
+
+                punchGain.gain.setValueAtTime(0.42 * intensity, now);
+                punchGain.gain.exponentialRampToValueAtTime(0.001, now + 0.055);
+
+                punch.connect(punchGain);
+                punchGain.connect(this.ctx.destination);
+                punch.start(now);
+                punch.stop(now + 0.06);
+            }
+
+            // Heavy Sutli Bomb / Sky Burst Explosion
+            playExplosion(intensity = 1.0) {
+                if (this.muted || !this.ctx) return;
+                const now = this.ctx.currentTime;
+
+                // 1. Sub-bass chest punch
+                const subOsc = this.ctx.createOscillator();
+                const subGain = this.ctx.createGain();
+                subOsc.type = 'sine';
+                subOsc.frequency.setValueAtTime(135 * intensity, now);
+                subOsc.frequency.exponentialRampToValueAtTime(24, now + 0.45);
+
+                subGain.gain.setValueAtTime(0.65 * intensity, now);
+                subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+
+                subOsc.connect(subGain);
+                subGain.connect(this.ctx.destination);
+                subOsc.start(now);
+                subOsc.stop(now + 0.52);
+
+                // 2. Broadband crack + reverb tail
+                const noiseSrc = this.ctx.createBufferSource();
+                noiseSrc.buffer = this.noiseBuffer;
+
+                const lowpass = this.ctx.createBiquadFilter();
+                lowpass.type = 'lowpass';
+                lowpass.frequency.setValueAtTime(2600, now);
+                lowpass.frequency.exponentialRampToValueAtTime(160, now + 0.9 * intensity);
+
+                const noiseGain = this.ctx.createGain();
+                noiseGain.gain.setValueAtTime(0.55 * intensity, now);
+                noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.95 * intensity);
+
+                noiseSrc.connect(lowpass);
+                lowpass.connect(noiseGain);
+                noiseGain.connect(this.ctx.destination);
+
+                noiseSrc.start(now);
+                noiseSrc.stop(now + 1.0 * intensity);
+            }
+        }
+
+        const audio = new DiwaliSoundEngine();
+
+        /**
+         * ============================================================================
+         * 2. CANVAS, SCENE & PURE DIWALI PALETTE SETUP
+         * ============================================================================
+         */
+        const canvas = document.getElementById('diwaliCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        let floorY = height * 0.58;
+
+        // Traditional Festive Colors (Haldi Gold, Marigold, Kumkum Red, Copper, Warm Ivory)
+        const DIWALI_COLORS = [
+            '#FFD700', // Haldi Gold
+            '#FF9933', // Kesari Saffron
+            '#FF5E00', // Deep Marigold
+            '#FFF3B0', // White-Hot Spark
+            '#E63946', // Kumkum Crimson
+            '#FFB703', // Warm Amber
+            '#10B981', // Panna Emerald
+            '#38BDF8', // Neelam Sapphire
+            '#F43F5E', // Gulabi Rose
+            '#A855F7'  // Jamuni Royal Violet
+        ];
+
+        let activeTool = 'sparkler';
+        let appMode = 'courtyard'; // 'courtyard' | 'pooja'
+        let pointer = { x: width / 2, y: height / 2, vx: 0, vy: 0, active: true };
+        let screenFlash = 0;
+        let screenFlashColor = '255, 195, 70';
+
+        // Big Sacred Pooja Diya State (Smooth Real-Time Fluid Flame Physics)
+        const poojaDiya = {
+            lit: true,
+            fuseProgress: 1,
+            time: 0,
+            windAngle: 0,
+            windVelocity: 0,
+            flameHeightScale: 1,
+            oilRipples: []
+        };
+
+        const sparks = [];
+        const shockwaves = [];
+        const aerialShells = []; // Projectiles launched from Rockets & Multi-Shot Repeaters
+        const items = [];
+
+        let layoutDirty = false; // becomes true once the user interacts, so we stop auto re-aligning
+
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+                r = Math.min(Array.isArray(r) ? r[0] : (r || 0), w / 2, h / 2);
+                this.moveTo(x + r, y);
+                this.arcTo(x + w, y, x + w, y + h, r);
+                this.arcTo(x + w, y + h, x, y + h, r);
+                this.arcTo(x, y + h, x, y, r);
+                this.arcTo(x, y, x + w, y, r);
+                this.closePath();
+            };
+        }
+
+        function setFlashColor(hex) {
+            if (typeof hex !== 'string' || hex[0] !== '#' || hex.length !== 7) return;
+            const n = parseInt(hex.slice(1), 16);
+            screenFlashColor = `${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}`;
+        }
+
+        // Real flight time (seconds) of a shell, simulated with the same physics as AerialShell
+        function estimateFlightSeconds(y, vy, targetY) {
+            let frames = 0;
+            while (frames < 600) {
+                y += vy; vy += 0.08; frames++;
+                if (y <= targetY || vy >= -1.5) break;
+            }
+            return frames / 60;
+        }
+
+        function getDockTop() {
+            const el = document.getElementById('dockScroll');
+            if (appMode === 'pooja' || !el) return height;
+            const r = el.getBoundingClientRect();
+            return r.height > 40 ? r.top : height - 104;
+        }
+
+        function resizeCanvas() {
+            const oldW = width || window.innerWidth;
+            const oldH = height || window.innerHeight;
+            width = window.innerWidth;
+            height = window.innerHeight;
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.round(width * dpr);
+            canvas.height = Math.round(height * dpr);
+            canvas.style.width = width + 'px';
+            canvas.style.height = height + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            floorY = height * 0.56;
+
+            // Keep existing courtyard items proportionally anchored when screen rotates or resizes
+            if (items.length > 0 && oldW > 0 && oldH > 0) {
+                const scaleX = width / oldW;
+                const scaleY = height / oldH;
+                for (const item of items) {
+                    item.x = Math.max(28, Math.min(width - 28, item.x * scaleX));
+                    item.y = Math.max(floorY + 18, Math.min(height - 112, item.y * scaleY));
+                }
+            }
+        }
+        function onResize() {
+            resizeCanvas();
+            if (!layoutDirty && typeof populateDefaultCourtyard === 'function' && items.length) populateDefaultCourtyard();
+            if (typeof updateDockFade === 'function') updateDockFade();
+        }
+        window.addEventListener('resize', onResize);
+        window.addEventListener('orientationchange', () => setTimeout(onResize, 250));
+        resizeCanvas();
+
+        /**
+         * ============================================================================
+         * 3. PARTICLE, SHOCKWAVE & AERIAL SHELL PHYSICS
+         * ============================================================================
+         */
+        class Spark {
+            constructor(x, y, vx, vy, color, size, decay, gravity = 0.15, drag = 0.985, opts = null) {
+                this.x = x;
+                this.y = y;
+                this.prevX = x;
+                this.prevY = y;
+                this.vx = vx;
+                this.vy = vy;
+                this.color = color;
+                this.size = size;
+                this.alpha = 1;
+                this.decay = decay;
+                this.gravity = gravity;
+                this.drag = drag;
+                // Optional attributes for "chit-chit" crackling stars, strobing glitters, and red paper confetti
+                this.crackle = opts?.crackle || false;
+                this.strobe = opts?.strobe || false;
+                this.isPaper = opts?.isPaper || false;
+                this.hasCrackled = false;
+                this.cross = opts?.cross || 0;      // crossette: splits into 4 stars
+                this.crossed = false;
+                this.tail = opts?.tail || false;    // comet: leaves a trail of embers
+                this.age = 0;
+            }
+
+            update() {
+                this.prevX = this.x;
+                this.prevY = this.y;
+                this.vx *= this.drag;
+                this.vy *= this.drag;
+                this.vy += this.gravity;
+                this.x += this.vx;
+                this.y += this.vy;
+                this.alpha -= this.decay;
+
+                // Bounce sparks off the courtyard floor if they hit near the bottom
+                if (this.gravity > 0.08 && this.y > height - 85 && this.vy > 0) {
+                    this.vy *= -0.45;
+                    this.vx *= 0.75;
+                }
+
+                if (this.cross && !this.crossed && this.alpha < this.cross) {
+                    this.crossed = true;
+                    const base = Math.atan2(this.vy, this.vx) + Math.PI / 4;
+                    for (let k = 0; k < 4; k++) {
+                        const a = base + k * Math.PI / 2;
+                        const sp = 2.4 + Math.random() * 0.8;
+                        sparks.push(new Spark(this.x, this.y, Math.cos(a) * sp, Math.sin(a) * sp, '#FFFBEB', 2.1, 0.032, 0.05, 0.95));
+                    }
+                }
+                if (this.tail && (++this.age % 2 === 0)) {
+                    sparks.push(new Spark(this.x, this.y, (Math.random() - 0.5) * 0.4, Math.random() * 0.4, this.color, 1.6, 0.05, 0.02, 0.9));
+                }
+
+                // "Chit-Chit" Secondary Star Crackle Pop at end of trail!
+                if (this.crackle && !this.hasCrackled && this.alpha < 0.36) {
+                    this.hasCrackled = true;
+                    for (let i = 0; i < 5; i++) {
+                        const a = Math.random() * Math.PI * 2;
+                        const s = 1.6 + Math.random() * 3.8;
+                        sparks.push(new Spark(
+                            this.x,
+                            this.y,
+                            Math.cos(a) * s,
+                            Math.sin(a) * s,
+                            i % 2 === 0 ? '#FFFBEB' : this.color,
+                            1.7,
+                            0.065,
+                            0.05,
+                            0.94
+                        ));
+                    }
+                }
+            }
+
+            draw(ctx) {
+                if (this.alpha <= 0) return;
+                if (this.strobe && Math.random() < 0.32) return; // Twinkling glitter effect
+
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, this.alpha);
+
+                // Red Paper Confetti Debris for 100/1K/5K/10K Wala Lads
+                if (this.isPaper) {
+                    ctx.fillStyle = this.color;
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.vx * 0.5 + this.alpha * 6);
+                    ctx.fillRect(-this.size, -this.size * 0.5, this.size * 2, this.size);
+                    ctx.restore();
+                    return;
+                }
+
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = this.size;
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                ctx.moveTo(this.prevX, this.prevY);
+                ctx.lineTo(this.x, this.y);
+                ctx.stroke();
+
+                // Hot core
+                ctx.fillStyle = '#FFFBEB';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 0.45, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        class Shockwave {
+            constructor(x, y, maxRadius, color) {
+                this.x = x;
+                this.y = y;
+                this.radius = 6;
+                this.maxRadius = maxRadius;
+                this.color = color;
+                this.alpha = 1;
+            }
+
+            update() {
+                this.radius += (this.maxRadius - this.radius) * 0.16;
+                this.alpha -= 0.04;
+            }
+
+            draw(ctx) {
+                if (this.alpha <= 0) return;
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, this.alpha);
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 3.5 * this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        // Dedicated Aerial Shell Projectile (Used by Rockets & 12/30/60 Multi-Shot Cakes)
+        // Features 6 distinct Diwali sky burst patterns + sizzling "Chit-Chit" crackling stars!
+        const SKY_BURST_TYPES = [
+            'navratna_crackle', // Multi-color Navratna jewel burst with "chit-chit" crackling tips
+            'heart',            // Glowing red heart with a golden heart inside
+            'satrangi_rings',   // Concentric double-ring Satrangi wave + silver strobing core
+            'crossette',        // Stars that split into four crossing sparks
+            'golden_willow',    // Long weeping golden brocade willow trails + crackling tips
+            'ganga_jamuna',     // Saffron and green split burst
+            'kundan_palm',      // Thick rising golden palm fronds + emerald/ruby pistils
+            'double_break',     // Big burst followed by a second ring burst
+            'diwali_chakra',    // Spiral galaxy pinwheel burst in the sky
+            'saturn_ring',      // Ball of stars wrapped in a tilted ring
+            'spider_comets',    // Long-tailed comets
+            'silver_glitter',   // White strobing glitter with crackle
+            'chit_chit_storm'   // Pure crackling star cluster with rapid "chit-chit" pops
+        ];
+
+        class AerialShell {
+            constructor(x, y, vx, vy, targetY, shellSize = 1.0, burstType = null) {
+                this.x = x;
+                this.y = y;
+                this.vx = vx;
+                this.vy = vy;
+                this.targetY = targetY;
+                this.shellSize = shellSize;
+                this.wobbleSeed = Math.random() * 100;
+                this.wobbleAmp = (Math.random() - 0.5) * 0.32;
+                this.done = false;
+                this.burstType = burstType || SKY_BURST_TYPES[Math.floor(Math.random() * SKY_BURST_TYPES.length)];
+                this.color = DIWALI_COLORS[Math.floor(Math.random() * DIWALI_COLORS.length)];
+                this.secondaryColor = DIWALI_COLORS[Math.floor(Math.random() * DIWALI_COLORS.length)];
+            }
+
+            update() {
+                this.wobbleSeed += 0.25;
+                // Natural aerodynamic flight curve
+                this.vx += Math.sin(this.wobbleSeed) * this.wobbleAmp * 0.14;
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vy += 0.08;
+
+                // Bright golden rocket propellant tail
+                for (let i = 0; i < 4; i++) {
+                    sparks.push(new Spark(
+                        this.x + (Math.random() - 0.5) * 3,
+                        this.y + 6,
+                        -this.vx * 0.22 + (Math.random() - 0.5) * 1.5,
+                        2.2 + Math.random() * 3.2,
+                        Math.random() > 0.3 ? '#FFD700' : '#FF5E00',
+                        2.2,
+                        0.048,
+                        0.05
+                    ));
+                }
+
+                // Detonate at target apex
+                if (this.y <= this.targetY || this.vy >= -1.5) {
+                    this.detonate();
+                    this.done = true;
+                }
+            }
+
+            detonate() {
+                audio.playBurstBoom(0.95 * this.shellSize);
+                setFlashColor(this.color);
+                screenFlash = Math.min(0.82, screenFlash + 0.36 * this.shellSize);
+                shockwaves.push(new Shockwave(this.x, this.y, 175 * this.shellSize, this.color));
+                shockwaves.push(new Shockwave(this.x, this.y, 110 * this.shellSize, '#FFF3B0'));
+
+                const s = this.shellSize;
+
+                // PATTERN 1: Navratna Multi-Color Crackle Peony ("Chit-Chit" finale)
+                if (this.burstType === 'navratna_crackle') {
+                    const count = Math.floor(95 * s);
+                    for (let i = 0; i < count; i++) {
+                        const ang = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.08;
+                        const spd = (3.8 + Math.random() * 8.8) * s;
+                        const col = DIWALI_COLORS[i % DIWALI_COLORS.length];
+                        sparks.push(new Spark(
+                            this.x, this.y,
+                            Math.cos(ang) * spd, Math.sin(ang) * spd,
+                            col, 2.5, 0.014 + Math.random() * 0.01, 0.09, 0.975,
+                            { crackle: i % 3 === 0, strobe: i % 2 === 0 }
+                        ));
+                    }
+                    setTimeout(() => audio.playChitChitCluster(18, 0.75), 240);
+                }
+
+                // PATTERN 2: Satrangi Concentric Double Rings + Strobe Core
+                else if (this.burstType === 'satrangi_rings') {
+                    const outerCount = Math.floor(54 * s);
+                    for (let i = 0; i < outerCount; i++) {
+                        const ang = (Math.PI * 2 * i) / outerCount;
+                        const spd = 9.2 * s;
+                        sparks.push(new Spark(
+                            this.x, this.y,
+                            Math.cos(ang) * spd, Math.sin(ang) * spd,
+                            this.color, 2.6, 0.015, 0.07, 0.972,
+                            { strobe: true }
+                        ));
+                    }
+                    const innerCount = Math.floor(36 * s);
+                    for (let i = 0; i < innerCount; i++) {
+                        const ang = (Math.PI * 2 * i) / innerCount + 0.08;
+                        const spd = 5.4 * s;
+                        sparks.push(new Spark(
+                            this.x, this.y,
+                            Math.cos(ang) * spd, Math.sin(ang) * spd,
+                            this.secondaryColor, 2.3, 0.016, 0.07, 0.972,
+                            { crackle: i % 2 === 0 }
+                        ));
+                    }
+                    setTimeout(() => audio.playChitChitCluster(14, 0.65), 280);
+                }
+
+                // PATTERN 3: Royal Golden Brocade Willow (Long weeping trails)
+                else if (this.burstType === 'golden_willow') {
+                    const count = Math.floor(80 * s);
+                    for (let i = 0; i < count; i++) {
+                        const ang = Math.random() * Math.PI * 2;
+                        const spd = (2.5 + Math.random() * 8.2) * s;
+                        const col = i % 4 === 0 ? '#FFF3B0' : (i % 2 === 0 ? '#FFD700' : '#FF9933');
+                        sparks.push(new Spark(
+                            this.x, this.y,
+                            Math.cos(ang) * spd, Math.sin(ang) * spd,
+                            col, 2.4, 0.008 + Math.random() * 0.006, 0.14, 0.982,
+                            { crackle: i % 5 === 0 }
+                        ));
+                    }
+                    setTimeout(() => audio.playChitChitCluster(12, 0.85), 350);
+                }
+
+                // PATTERN 4: Kundan Palm Burst (Thick golden fronds + jewel pistils)
+                else if (this.burstType === 'kundan_palm') {
+                    const branches = 10;
+                    for (let b = 0; b < branches; b++) {
+                        const baseAng = (Math.PI * 2 * b) / branches + (Math.random() - 0.5) * 0.15;
+                        for (let k = 1; k <= 8; k++) {
+                            const spd = (k * 1.25) * s;
+                            sparks.push(new Spark(
+                                this.x, this.y,
+                                Math.cos(baseAng) * spd + (Math.random() - 0.5) * 0.5,
+                                Math.sin(baseAng) * spd + (Math.random() - 0.5) * 0.5,
+                                k > 6 ? this.color : '#FFD700',
+                                3.0 - k * 0.15,
+                                0.013,
+                                0.11,
+                                0.976,
+                                { crackle: k === 8 }
+                            ));
+                        }
+                    }
+                    setTimeout(() => audio.playChitChitCluster(14, 0.6), 260);
+                }
+
+                // PATTERN 5: Diwali Sky Chakra (Spiral Pinwheel Galaxy)
+                else if (this.burstType === 'diwali_chakra') {
+                    const arms = 6;
+                    const perArm = Math.floor(16 * s);
+                    for (let a = 0; a < arms; a++) {
+                        const armColor = DIWALI_COLORS[(a * 2) % DIWALI_COLORS.length];
+                        for (let j = 0; j < perArm; j++) {
+                            const frac = j / perArm;
+                            const ang = (Math.PI * 2 * a) / arms + frac * 1.6;
+                            const spd = (2.5 + frac * 8.5) * s;
+                            sparks.push(new Spark(
+                                this.x, this.y,
+                                Math.cos(ang) * spd, Math.sin(ang) * spd,
+                                armColor, 2.4, 0.014, 0.08, 0.975,
+                                { strobe: j % 2 === 0, crackle: j === perArm - 1 }
+                            ));
+                        }
+                    }
+                    setTimeout(() => audio.playChitChitCluster(15, 0.7), 250);
+                }
+
+                // NEW: Heart
+                else if (this.burstType === 'heart') {
+                    for (let layer = 0; layer < 2; layer++) {
+                        const k = (layer === 0 ? 0.46 : 0.25) * s;
+                        const col = layer === 0 ? '#F43F5E' : '#FFD700';
+                        const n = Math.floor((layer === 0 ? 68 : 40) * s);
+                        for (let i = 0; i < n; i++) {
+                            const t = (i / n) * Math.PI * 2;
+                            const hx = 16 * Math.pow(Math.sin(t), 3);
+                            const hy = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+                            sparks.push(new Spark(this.x, this.y, hx * k, hy * k, col, 2.7, 0.016, 0.012, 0.965, { strobe: layer === 1, crackle: i % 9 === 0 }));
+                        }
+                    }
+                    setTimeout(() => audio.playChitChitCluster(10, 0.6), 300);
+                }
+
+                // NEW: Ganga-Jamuna (saffron + green halves)
+                else if (this.burstType === 'ganga_jamuna') {
+                    const n = Math.floor(104 * s);
+                    for (let i = 0; i < n; i++) {
+                        const ang = (Math.PI * 2 * i) / n;
+                        const spd = (4.8 + Math.random() * 4.6) * s;
+                        const col = i < n / 2 ? '#FF9933' : '#10B981';
+                        sparks.push(new Spark(this.x, this.y, Math.cos(ang) * spd, Math.sin(ang) * spd, col, 2.6, 0.015, 0.07, 0.972, { strobe: i % 3 === 0, crackle: i % 8 === 0 }));
+                    }
+                    setTimeout(() => audio.playChitChitCluster(12, 0.7), 280);
+                }
+
+                // NEW: Crossette (each star splits into 4)
+                else if (this.burstType === 'crossette') {
+                    const n = Math.floor(18 * s);
+                    for (let i = 0; i < n; i++) {
+                        const ang = (Math.PI * 2 * i) / n + (Math.random() - 0.5) * 0.1;
+                        const spd = (6 + Math.random() * 2.2) * s;
+                        sparks.push(new Spark(this.x, this.y, Math.cos(ang) * spd, Math.sin(ang) * spd, i % 2 ? '#FFD700' : this.color, 3.0, 0.012, 0.06, 0.975, { cross: 0.5 }));
+                    }
+                    setTimeout(() => audio.playChitChitCluster(22, 0.7), 520);
+                }
+
+                // NEW: Double break (second burst a moment later)
+                else if (this.burstType === 'double_break') {
+                    const bx = this.x, by = this.y, col2 = this.secondaryColor;
+                    const n = Math.floor(70 * s);
+                    for (let i = 0; i < n; i++) {
+                        const ang = (Math.PI * 2 * i) / n;
+                        const spd = (3 + Math.random() * 6) * s;
+                        sparks.push(new Spark(bx, by, Math.cos(ang) * spd, Math.sin(ang) * spd, this.color, 2.6, 0.015, 0.08, 0.974, { strobe: i % 2 === 0 }));
+                    }
+                    setTimeout(() => {
+                        audio.playBurstBoom(0.65 * s);
+                        setFlashColor(col2);
+                        screenFlash = Math.min(0.8, screenFlash + 0.25);
+                        shockwaves.push(new Shockwave(bx, by, 120 * s, col2));
+                        for (let i = 0; i < 60; i++) {
+                            const ang = (Math.PI * 2 * i) / 60;
+                            sparks.push(new Spark(bx, by, Math.cos(ang) * 7.5 * s, Math.sin(ang) * 7.5 * s, col2, 2.5, 0.016, 0.07, 0.972, { crackle: i % 4 === 0 }));
+                        }
+                        for (let i = 0; i < 30; i++) {
+                            const ang = Math.random() * Math.PI * 2;
+                            const spd = (1.5 + Math.random() * 3.5) * s;
+                            sparks.push(new Spark(bx, by, Math.cos(ang) * spd, Math.sin(ang) * spd, '#FFF3B0', 2.2, 0.018, 0.06, 0.972, { strobe: true }));
+                        }
+                        audio.playChitChitCluster(12, 0.6);
+                    }, 380);
+                }
+
+                // NEW: Saturn (ball of stars + tilted ring)
+                else if (this.burstType === 'saturn_ring') {
+                    for (let i = 0; i < 34; i++) {
+                        const ang = Math.random() * Math.PI * 2;
+                        const spd = (1.5 + Math.random() * 4) * s;
+                        sparks.push(new Spark(this.x, this.y, Math.cos(ang) * spd, Math.sin(ang) * spd, this.color, 2.5, 0.015, 0.05, 0.97));
+                    }
+                    const tilt = -0.45, ct = Math.cos(tilt), st = Math.sin(tilt);
+                    for (let i = 0; i < 60; i++) {
+                        const th = (Math.PI * 2 * i) / 60;
+                        const vx = Math.cos(th) * 9.5 * s, vy = Math.sin(th) * 9.5 * s * 0.26;
+                        sparks.push(new Spark(this.x, this.y, vx * ct - vy * st, vx * st + vy * ct, this.secondaryColor, 2.7, 0.014, 0.035, 0.972, { strobe: i % 2 === 0 }));
+                    }
+                    setTimeout(() => audio.playChitChitCluster(10, 0.6), 300);
+                }
+
+                // NEW: Spider comets (long-tailed streakers)
+                else if (this.burstType === 'spider_comets') {
+                    const n = Math.floor(13 * s);
+                    for (let i = 0; i < n; i++) {
+                        const ang = (Math.PI * 2 * i) / n + (Math.random() - 0.5) * 0.25;
+                        const spd = (5 + Math.random() * 3.5) * s;
+                        sparks.push(new Spark(this.x, this.y, Math.cos(ang) * spd, Math.sin(ang) * spd, i % 2 ? '#FFF3B0' : '#FFD700', 3.4, 0.0105, 0.1, 0.982, { tail: true, crackle: true }));
+                    }
+                    setTimeout(() => audio.playChitChitCluster(14, 0.8), 700);
+                }
+
+                // NEW: Silver glitter (ice-white strobe)
+                else if (this.burstType === 'silver_glitter') {
+                    const n = Math.floor(110 * s);
+                    const cols = ['#E0F2FE', '#FFFFFF', '#BAE6FD'];
+                    for (let i = 0; i < n; i++) {
+                        const ang = Math.random() * Math.PI * 2;
+                        const spd = (2 + Math.random() * 7.5) * s;
+                        sparks.push(new Spark(this.x, this.y, Math.cos(ang) * spd, Math.sin(ang) * spd, cols[i % 3], 2.3, 0.011, 0.05, 0.975, { strobe: true, crackle: i % 2 === 0 }));
+                    }
+                    setTimeout(() => audio.playChitChitCluster(30, 1.2), 250);
+                }
+
+                // PATTERN 6: Chit-Chit Crackling Crossette Storm
+                else {
+                    const count = Math.floor(72 * s);
+                    for (let i = 0; i < count; i++) {
+                        const ang = Math.random() * Math.PI * 2;
+                        const spd = (3.5 + Math.random() * 7.8) * s;
+                        const col = DIWALI_COLORS[Math.floor(Math.random() * DIWALI_COLORS.length)];
+                        sparks.push(new Spark(
+                            this.x, this.y,
+                            Math.cos(ang) * spd, Math.sin(ang) * spd,
+                            col, 2.7, 0.018 + Math.random() * 0.01, 0.08, 0.97,
+                            { crackle: true, strobe: true }
+                        ));
+                    }
+                    setTimeout(() => audio.playChitChitCluster(26, 0.95), 180);
+                }
+            }
+
+            draw(ctx) {
+                ctx.save();
+                ctx.fillStyle = '#FFFBEB';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 3.8, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        /**
+         * ============================================================================
+         * 4. TRADITIONAL DIWALI ITEMS (Diya, Chakri, Anaar, Sutli, Rocket,
+         *    100/1000/5000/10000 Wala Lads, and 12/30/60 Multi-Shot Sky Cakes)
+         * ============================================================================
+         */
+        // Lads: 100 & 1000 are straight hanging threads, 5000 & 10000 are big coiled rolls
+        const WALA_SPECS = {
+            wala100:   { kind: 'thread', len: 58,  pairs: 12, cw: 9,   ch: 3.6, per: 1,  pops: 100,  frames: 300, weight: 0.30, tier: 1 },
+            wala1000:  { kind: 'thread', len: 150, pairs: 46, cw: 6,   ch: 2.4, per: 5,  pops: 1000, frames: 600, weight: 0.20, tier: 2 },
+            wala5000:  { kind: 'roll',   r: 34, turns: 4,   cw: 6,   per: 9,  pops: 2160, frames: 720, weight: 0.50, tier: 3 },
+            wala10000: { kind: 'roll',   r: 44, turns: 5.5, cw: 7.5, per: 13, pops: 3640, frames: 840, weight: 0.75, tier: 4 }
+        };
+
+        class DiwaliItem {
+            constructor(type, x, y, free = false) {
+                this.type = type;
+                this.x = x;
+                this.y = free ? y : Math.max(floorY + 20, Math.min(height - 112, y));
+                this.threadLen = WALA_SPECS[type] && WALA_SPECS[type].kind === 'thread'
+                    ? Math.max(40, Math.min(WALA_SPECS[type].len, this.y - 76)) : 0;
+                this.popAcc = 0;
+                this.muzzleGlow = 0;
+                this.finishTimer = 50;
+                this.shotTotal = 0;
+                this.typeOffset = 0;
+                this.state = 'unlit'; // 'unlit' -> 'fuse' -> 'active' -> 'done'
+                this.fuseProgress = 0;
+                this.fuseSpeed = type === 'diya' ? 0.09 : 0.018;
+                this.activeTimer = 0;
+                this.maxTimer = 1;
+                this.spinAngle = 0;
+                this.flameFlicker = Math.random() * 100;
+
+                // Rocket & Multi-Shot properties
+                this.tiltAngle = (Math.random() - 0.5) * 0.28; // Natural launch slant
+                this.shotsRemaining = 0;
+                this.shotCooldown = 0;
+                this.shotInterval = 18;
+            }
+
+            isWala() {
+                return this.type.startsWith('wala');
+            }
+
+            isMultiShot() {
+                return this.type.startsWith('shot');
+            }
+
+            // Returns world coordinates of the current fuse tip
+            getFuseTip() {
+                const p = this.fuseProgress;
+                switch (this.type) {
+                    case 'diya':
+                        return { x: this.x + 18, y: this.y - 8 };
+                    case 'chakri': {
+                        const angle = -0.6 + p * 0.6;
+                        const dist = 34 * (1 - p) + 18 * p;
+                        return {
+                            x: this.x + Math.cos(angle) * dist,
+                            y: this.y + Math.sin(angle) * (dist * 0.55)
+                        };
+                    }
+                    case 'anaar':
+                        return {
+                            x: this.x + Math.sin((1 - p) * 3) * 5,
+                            y: this.y - 42 - (1 - p) * 16
+                        };
+                    case 'sutli':
+                        return {
+                            x: this.x + (1 - p) * 14,
+                            y: this.y - 24 - (1 - p) * 18
+                        };
+                    case 'rocket':
+                        return {
+                            x: this.x - 10 * (1 - p),
+                            y: this.y + 8 + (1 - p) * 14
+                        };
+                    case 'wala100':
+                    case 'wala1000':
+                        // thread is lit at its bottom end and burns upward
+                        return { x: this.x + (1 - p) * 9, y: this.y + 4 + (1 - p) * 14 };
+                    case 'wala5000':
+                    case 'wala10000': {
+                        const R = WALA_SPECS[this.type].r;
+                        return { x: this.x + R + (1 - p) * 16, y: this.y + (1 - p) * 4 };
+                    }
+                    case 'shot12':
+                    case 'shot30':
+                    case 'shot60': {
+                        const halfW = this.type === 'shot12' ? 20 : (this.type === 'shot30' ? 28 : 36);
+                        return {
+                            x: this.x - halfW - (1 - p) * 12,
+                            y: this.y - 22 - (1 - p) * 10
+                        };
+                    }
+                }
+                return { x: this.x, y: this.y };
+            }
+
+            igniteFuse() {
+                if (this.state !== 'unlit') return;
+                audio.init();
+                this.state = 'fuse';
+                layoutDirty = true;
+                if (this.type === 'sutli' || this.type === 'rocket' || this.isWala() || this.isMultiShot()) {
+                    audio.playFuseHiss(1 / this.fuseSpeed / 60, 0.05);
+                }
+
+                // Initial ignition spark burst
+                const tip = this.getFuseTip();
+                for (let i = 0; i < 12; i++) {
+                    const ang = Math.random() * Math.PI * 2;
+                    const spd = 1 + Math.random() * 4;
+                    sparks.push(new Spark(tip.x, tip.y, Math.cos(ang) * spd, Math.sin(ang) * spd, '#FFD700', 2, 0.05));
+                }
+            }
+
+            triggerMainAction() {
+                this.state = 'active';
+
+                if (this.type === 'diya') {
+                    audio.playDiyaLit();
+                } else if (this.type === 'chakri') {
+                    this.activeTimer = 215;
+                    audio.playChakriSpin(3.6);
+                } else if (this.type === 'anaar') {
+                    this.activeTimer = 220;
+                    audio.playAnaarRoar(3.6);
+                } else if (this.type === 'sutli') {
+                    audio.playSutliBomb(1.25);
+                    screenFlashColor = '255, 190, 80';
+                    screenFlash = 0.85;
+                    this.triggerScreenShake();
+                    for (let i = 0; i < 16; i++) {
+                        const ang = -Math.PI * (0.1 + Math.random() * 0.8);
+                        const spd = 3 + Math.random() * 9;
+                        sparks.push(new Spark(this.x, this.y - 10, Math.cos(ang) * spd, Math.sin(ang) * spd, i % 3 ? '#15803D' : '#DC2626', 2.6, 0.02, 0.26, 0.95, { isPaper: true }));
+                    }
+
+                    shockwaves.push(new Shockwave(this.x, this.y - 10, 260, '#FFD700'));
+                    shockwaves.push(new Shockwave(this.x, this.y - 10, 170, '#FF4500'));
+
+                    for (let i = 0; i < 140; i++) {
+                        const ang = Math.random() * Math.PI * 2;
+                        const spd = 2 + Math.random() * 16;
+                        const col = DIWALI_COLORS[Math.floor(Math.random() * DIWALI_COLORS.length)];
+                        sparks.push(new Spark(
+                            this.x,
+                            this.y - 10,
+                            Math.cos(ang) * spd,
+                            Math.sin(ang) * spd - 2,
+                            col,
+                            1.8 + Math.random() * 2.5,
+                            0.014 + Math.random() * 0.02,
+                            0.18
+                        ));
+                    }
+                    this.state = 'done';
+                } else if (this.type === 'rocket') {
+                    // Launch an AerialShell with realistic varied angle, speed, and burst altitude
+                    const speed = 12.0 + Math.random() * 3.5;
+                    const launchVx = Math.sin(this.tiltAngle) * speed + (Math.random() - 0.5) * 2.0;
+                    const launchVy = -Math.cos(this.tiltAngle) * speed;
+                    const targetY = height * (0.10 + Math.random() * 0.24);
+                    const flightDuration = estimateFlightSeconds(this.y - 20, launchVy, targetY);
+
+                    audio.playRocketLaunch(flightDuration);
+                    aerialShells.push(new AerialShell(this.x, this.y - 20, launchVx, launchVy, targetY, 1.15));
+                    this.state = 'done';
+                } else if (this.isWala()) {
+                    const spec = WALA_SPECS[this.type];
+                    this.maxTimer = spec.frames;
+                    this.activeTimer = spec.frames;
+                    this.popAcc = 0;
+                    audio.playCrackerTrain(spec.pops, spec.frames / 60, spec.weight, spec.kind, spec.per);
+                } else if (this.isMultiShot()) {
+                    // Sky Shot Repeaters: 12, 30, 60 Shots
+                    const counts = { shot12: 12, shot30: 30, shot60: 60 };
+                    const intervals = { shot12: 26, shot30: 15, shot60: 14 };
+                    this.shotTotal = counts[this.type] || 12;
+                    this.shotsRemaining = this.shotTotal;
+                    this.shotInterval = intervals[this.type] || 18;
+                    this.shotCooldown = 2;
+                    this.finishTimer = 50;
+                    this.typeOffset = Math.floor(Math.random() * SKY_BURST_TYPES.length);
+                }
+            }
+
+            fireShotVolley() {
+                const idx = this.shotTotal - this.shotsRemaining;
+                const boxW = this.type === 'shot12' ? 30 : (this.type === 'shot30' ? 44 : 58);
+                const finale = this.type === 'shot60' && this.shotsRemaining <= 6;
+                let salvo = this.type === 'shot60' ? (finale ? this.shotsRemaining : 3) : 1;
+                salvo = Math.min(salvo, this.shotsRemaining);
+
+                audio.playTubeThump();
+                for (let k = 0; k < salvo; k++) {
+                    const frac = salvo > 1 ? k / (salvo - 1) : 0.5;
+                    let vx;
+                    let tubeFrac;
+                    if (this.type === 'shot12') {
+                        vx = ((idx % 3) - 1) * 1.1 + (Math.random() - 0.5) * 0.6;   // tight vertical volleys
+                        tubeFrac = (idx * 0.618) % 1;
+                    } else if (this.type === 'shot30') {
+                        const ph = (idx % 10) / 9;
+                        const dir = Math.floor(idx / 10) % 2 === 0 ? ph : 1 - ph;    // left-right-left fan sweeps
+                        vx = (dir - 0.5) * 7;
+                        tubeFrac = dir;
+                    } else {
+                        vx = (frac - 0.5) * (finale ? 9.5 : 6.5) + (Math.random() - 0.5) * 0.8; // salvos of three, finale of six
+                        tubeFrac = frac;
+                    }
+                    const tubeX = this.x + (tubeFrac - 0.5) * boxW;
+                    const tubeY = this.y - 24;
+
+                    for (let i = 0; i < 8; i++) {
+                        const ang = -Math.PI / 2 + (Math.random() - 0.5) * 0.6;
+                        const spd = 2 + Math.random() * 5;
+                        sparks.push(new Spark(tubeX, tubeY, Math.cos(ang) * spd, Math.sin(ang) * spd, '#FFD700', 1.8, 0.06, 0.1));
+                    }
+
+                    const launchVy = -(11.5 + Math.random() * 3.5) - (finale ? 1 : 0);
+                    const targetY = height * (0.08 + Math.random() * 0.28);
+                    const size = finale ? 1.1 : (this.type === 'shot12' ? 1.0 : (this.type === 'shot30' ? 0.9 : 0.8));
+                    const burst = SKY_BURST_TYPES[(this.typeOffset + idx + k) % SKY_BURST_TYPES.length];
+                    aerialShells.push(new AerialShell(tubeX, tubeY, vx, launchVy, targetY, size, burst));
+                }
+                this.shotsRemaining -= salvo;
+                this.muzzleGlow = 1;
+                screenFlashColor = '255, 195, 70';
+                screenFlash = Math.min(0.4, screenFlash + 0.07);
+            }
+
+            triggerScreenShake() {
+                document.body.classList.remove('shake');
+                void document.body.offsetWidth;
+                document.body.classList.add('shake');
+            }
+
+            update() {
+                this.flameFlicker += 0.18;
+                if (this.muzzleGlow > 0) this.muzzleGlow *= 0.86;
+
+                // 1. Burning thread fuse state
+                if (this.state === 'fuse') {
+                    this.fuseProgress += this.fuseSpeed;
+                    const tip = this.getFuseTip();
+
+                    for (let i = 0; i < 3; i++) {
+                        const ang = Math.random() * Math.PI * 2;
+                        const spd = 0.8 + Math.random() * 3.2;
+                        sparks.push(new Spark(
+                            tip.x,
+                            tip.y,
+                            Math.cos(ang) * spd,
+                            Math.sin(ang) * spd - 0.8,
+                            Math.random() > 0.35 ? '#FFD700' : '#FF5E00',
+                            1.6,
+                            0.06,
+                            0.1
+                        ));
+                    }
+                    if (Math.random() < 0.45) audio.playSparkPop(3400, 0.03);
+
+                    if (this.fuseProgress >= 1) {
+                        this.fuseProgress = 1;
+                        this.triggerMainAction();
+                    }
+                }
+
+                // 2. Active state per cracker type
+                if (this.state === 'active') {
+                    if (this.type === 'diya') {
+                        if (Math.random() < 0.08) {
+                            sparks.push(new Spark(
+                                this.x + 18 + (Math.random() - 0.5) * 3,
+                                this.y - 18,
+                                (Math.random() - 0.5) * 0.4,
+                                -0.8 - Math.random() * 0.8,
+                                '#FFD700',
+                                1.5,
+                                0.03,
+                                -0.02
+                            ));
+                        }
+                    } else if (this.type === 'chakri') {
+                        this.activeTimer--;
+                        this.spinAngle += 0.48;
+                        this.x += Math.cos(this.spinAngle * 0.17) * 1.4;
+                        this.y += Math.sin(this.spinAngle * 0.13) * 0.6;
+                        this.x = Math.max(24, Math.min(width - 24, this.x));
+                        this.y = Math.max(floorY + 10, Math.min(height - 108, this.y));
+
+                        for (let i = 0; i < 7; i++) {
+                            const tangAngle = this.spinAngle + (i * Math.PI * 0.5) + (Math.random() - 0.5) * 0.3;
+                            const spd = 4 + Math.random() * 7;
+                            const col = i % 2 === 0 ? '#FFD700' : '#FF6B00';
+                            sparks.push(new Spark(
+                                this.x + Math.cos(tangAngle) * 14,
+                                this.y + Math.sin(tangAngle) * 8,
+                                Math.cos(tangAngle) * spd,
+                                Math.sin(tangAngle) * spd * 0.65,
+                                col,
+                                2.1,
+                                0.032,
+                                0.05
+                            ));
+                        }
+                        if (Math.random() < 0.35) audio.playSparkPop(2600, 0.025);
+                        if (this.activeTimer <= 0) this.state = 'done';
+
+                    } else if (this.type === 'anaar') {
+                        this.activeTimer--;
+                        for (let i = 0; i < 9; i++) {
+                            const spread = (Math.random() - 0.5) * 0.48;
+                            const angle = -Math.PI / 2 + spread;
+                            const spd = 7 + Math.random() * 9.5;
+                            const col = Math.random() > 0.3 ? '#FFD700' : (Math.random() > 0.5 ? '#FFFBEB' : '#FF7B00');
+                            sparks.push(new Spark(
+                                this.x,
+                                this.y - 40,
+                                Math.cos(angle) * spd,
+                                Math.sin(angle) * spd,
+                                col,
+                                2.2 + Math.random() * 1.5,
+                                0.016 + Math.random() * 0.012,
+                                0.24
+                            ));
+                        }
+                        if (Math.random() < 0.5) audio.playSparkPop(2200, 0.03);
+                        if (this.activeTimer <= 0) this.state = 'done';
+
+                    } else if (this.isWala()) {
+                        const spec = WALA_SPECS[this.type];
+                        const tier = spec.tier;
+                        this.activeTimer--;
+                        const prog = Math.min(1, 1 - this.activeTimer / this.maxTimer);
+
+                        // Burning head: threads burn bottom -> top, rolls burn outside -> inside along the spiral
+                        let bx, by;
+                        if (spec.kind === 'thread') {
+                            bx = this.x + (Math.random() - 0.5) * 8;
+                            by = this.y - prog * this.threadLen;
+                        } else {
+                            const th = prog * spec.turns * Math.PI * 2;
+                            const rr = spec.r - (spec.r - spec.r * 0.2) * prog;
+                            bx = this.x + Math.cos(th) * rr;
+                            by = this.y + Math.sin(th) * rr * 0.58;
+                        }
+                        this.lastBlastX = bx;
+                        this.lastBlastY = by;
+
+                        // one cracker beat every 3 frames (0.05 s)
+                        const elapsed = this.maxTimer - this.activeTimer;
+                        let ev = (elapsed % 3 === 1) ? Math.min(spec.per, spec.kind === 'thread' ? 2 : 4) : 0;
+
+                        for (let e = 0; e < ev; e++) {
+                            const jx = bx + (Math.random() - 0.5) * (spec.kind === 'thread' ? 10 : 14);
+                            const jy = by + (Math.random() - 0.5) * (spec.kind === 'thread' ? 8 : 6);
+                            screenFlashColor = '255, 195, 70';
+                            screenFlash = Math.min(0.5, screenFlash + 0.02 + 0.013 * tier);
+
+                            const n = 5 + tier * 2;
+                            for (let i = 0; i < n; i++) {
+                                const ang = spec.kind === 'thread' ? Math.random() * Math.PI * 2 : -Math.PI * Math.random() * 1.2;
+                                const spd = 2 + Math.random() * (5 + tier);
+                                const col = i % 3 === 0 ? '#FFFBEB' : (Math.random() > 0.35 ? '#FFD700' : '#FF5E00');
+                                sparks.push(new Spark(jx, jy, Math.cos(ang) * spd, Math.sin(ang) * spd - 1, col, 1.8 + Math.random() * 1.2, 0.05 + Math.random() * 0.03, 0.22, 0.95));
+                            }
+                            const papers = spec.kind === 'thread' ? 1 : 2;
+                            for (let q = 0; q < papers; q++) {
+                                const ang = -Math.PI * (0.1 + Math.random() * 0.8);
+                                const spd = 2 + Math.random() * 5;
+                                sparks.push(new Spark(jx, jy, Math.cos(ang) * spd, Math.sin(ang) * spd, Math.random() > 0.25 ? '#DC2626' : '#FACC15', 2.2 + Math.random() * 1.2, 0.028, 0.24, 0.94, { isPaper: true }));
+                            }
+                            if (Math.random() < 0.1) {
+                                shockwaves.push(new Shockwave(jx, jy, 24 + tier * 10, Math.random() > 0.4 ? '#FFD700' : '#FF5E00'));
+                            }
+                        }
+                        if (tier >= 3 && Math.random() < 0.025) this.triggerScreenShake();
+
+                        if (this.activeTimer <= 0) {
+                            // Heavy head cracker at the end of the string
+                            setTimeout(() => audio.playLadFinale(tier), 90);
+                            screenFlashColor = '255, 195, 70';
+                            screenFlash = Math.min(0.85, screenFlash + 0.5);
+                            if (tier >= 2) this.triggerScreenShake();
+                            shockwaves.push(new Shockwave(bx, by, 120 + tier * 28, '#FFD700'));
+                            for (let i = 0; i < 40 + tier * 12; i++) {
+                                const ang = Math.random() * Math.PI * 2;
+                                const spd = 2 + Math.random() * (8 + tier * 2);
+                                sparks.push(new Spark(bx, by, Math.cos(ang) * spd, Math.sin(ang) * spd - 1.5, i % 3 ? '#FFD700' : '#FFFBEB', 2.2, 0.03, 0.2, 0.96, { crackle: i % 6 === 0 }));
+                            }
+                            this.state = 'done';
+                        }
+
+                    } else if (this.isMultiShot()) {
+                        if (this.shotsRemaining > 0) {
+                            this.shotCooldown--;
+                            if (this.shotCooldown <= 0) {
+                                this.fireShotVolley();
+                                this.shotCooldown = this.shotInterval + Math.floor((Math.random() - 0.5) * 4);
+                            }
+                        } else {
+                            this.finishTimer--;
+                            if (this.finishTimer <= 0) this.state = 'done';
+                        }
+                    }
+                }
+            }
+
+            draw(ctx) {
+                if (this.state === 'done') return;
+
+                ctx.save();
+
+                // 1. Draw Mitti Diya
+                if (this.type === 'diya') {
+                    // Ambient floor glow when lit
+                    if (this.state === 'active') {
+                        const glowRadius = 115 + Math.sin(this.flameFlicker) * 8;
+                        const grad = ctx.createRadialGradient(this.x + 18, this.y - 14, 2, this.x, this.y, glowRadius);
+                        grad.addColorStop(0, 'rgba(255, 200, 50, 0.48)');
+                        grad.addColorStop(0.45, 'rgba(255, 110, 0, 0.16)');
+                        grad.addColorStop(1, 'rgba(255, 80, 0, 0)');
+                        ctx.fillStyle = grad;
+                        ctx.beginPath();
+                        ctx.arc(this.x + 10, this.y - 6, glowRadius, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+
+                    // Cotton Wick
+                    ctx.strokeStyle = this.state === 'unlit' ? '#FDE68A' : '#78350F';
+                    ctx.lineWidth = 2.5;
+                    ctx.beginPath();
+                    ctx.moveTo(this.x + 12, this.y - 2);
+                    ctx.quadraticCurveTo(this.x + 17, this.y - 6, this.x + 19, this.y - 9);
+                    ctx.stroke();
+
+                    // Terracotta Clay Bowl
+                    ctx.fillStyle = '#9E3B18';
+                    ctx.strokeStyle = '#F59E0B';
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath();
+                    ctx.moveTo(this.x - 22, this.y - 3);
+                    ctx.quadraticCurveTo(this.x, this.y + 18, this.x + 24, this.y - 3);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.stroke();
+
+                    // Decorative Gold Rim
+                    ctx.strokeStyle = '#FFD700';
+                    ctx.lineWidth = 1.2;
+                    ctx.beginPath();
+                    ctx.ellipse(this.x + 1, this.y - 3, 23, 4.5, 0, 0, Math.PI * 2);
+                    ctx.fillStyle = '#5C1D0A';
+                    ctx.fill();
+                    ctx.stroke();
+
+                    // Living Flame
+                    if (this.state === 'active') {
+                        const sway = Math.sin(this.flameFlicker) * 2.2;
+                        const stretch = Math.cos(this.flameFlicker * 1.3) * 2;
+
+                        // Outer Saffron Flame
+                        ctx.fillStyle = '#FF7B00';
+                        ctx.beginPath();
+                        ctx.moveTo(this.x + 18, this.y - 7);
+                        ctx.quadraticCurveTo(this.x + 27, this.y - 16, this.x + 18 + sway, this.y - 30 - stretch);
+                        ctx.quadraticCurveTo(this.x + 9, this.y - 16, this.x + 18, this.y - 7);
+                        ctx.fill();
+
+                        // Inner White-Gold Core
+                        ctx.fillStyle = '#FFFBEB';
+                        ctx.beginPath();
+                        ctx.moveTo(this.x + 18, this.y - 8);
+                        ctx.quadraticCurveTo(this.x + 23, this.y - 14, this.x + 18 + sway * 0.5, this.y - 22 - stretch * 0.5);
+                        ctx.quadraticCurveTo(this.x + 13, this.y - 14, this.x + 18, this.y - 8);
+                        ctx.fill();
+                    }
+                }
+
+                // 2. Draw Chakri (Ground Spinner)
+                else if (this.type === 'chakri') {
+                    // Fuse cord
+                    if (this.state !== 'active') {
+                        const tip = this.getFuseTip();
+                        ctx.strokeStyle = '#FDE047';
+                        ctx.lineWidth = 2;
+                        ctx.beginPath();
+                        ctx.moveTo(this.x + 16, this.y);
+                        ctx.lineTo(tip.x, tip.y);
+                        ctx.stroke();
+                    }
+
+                    ctx.translate(this.x, this.y);
+                    ctx.scale(1, 0.58); // Isometric floor perspective
+                    ctx.rotate(this.spinAngle);
+
+                    // Outer Red Coil
+                    ctx.fillStyle = '#B91C1C';
+                    ctx.strokeStyle = '#FBBF24';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 18, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    // Inner Foil Pattern
+                    ctx.fillStyle = '#1D4ED8';
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 11, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.fillStyle = '#FFD700';
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 4.5, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // 3. Draw Anaar (Conical Flower Pot)
+                else if (this.type === 'anaar') {
+                    // Fuse cord
+                    if (this.state !== 'active') {
+                        const tip = this.getFuseTip();
+                        ctx.strokeStyle = '#FDE047';
+                        ctx.lineWidth = 2;
+                        ctx.beginPath();
+                        ctx.moveTo(this.x, this.y - 40);
+                        ctx.lineTo(tip.x, tip.y);
+                        ctx.stroke();
+                    }
+
+                    // Active Fountain Base Glow
+                    if (this.state === 'active') {
+                        const g = ctx.createRadialGradient(this.x, this.y - 40, 2, this.x, this.y - 25, 130);
+                        g.addColorStop(0, 'rgba(255, 235, 150, 0.65)');
+                        g.addColorStop(0.5, 'rgba(255, 120, 0, 0.22)');
+                        g.addColorStop(1, 'rgba(0, 0, 0, 0)');
+                        ctx.fillStyle = g;
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y - 25, 130, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+
+                    // Conical Body
+                    ctx.fillStyle = '#991B1B';
+                    ctx.strokeStyle = '#FBBF24';
+                    ctx.lineWidth = 1.6;
+                    ctx.beginPath();
+                    ctx.moveTo(this.x - 5, this.y - 40);
+                    ctx.lineTo(this.x + 5, this.y - 40);
+                    ctx.lineTo(this.x + 18, this.y);
+                    ctx.lineTo(this.x - 18, this.y);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.stroke();
+
+                    // Traditional Gold Foil Band
+                    ctx.fillStyle = '#F59E0B';
+                    ctx.beginPath();
+                    ctx.moveTo(this.x - 10, this.y - 24);
+                    ctx.lineTo(this.x + 10, this.y - 24);
+                    ctx.lineTo(this.x + 14, this.y - 11);
+                    ctx.lineTo(this.x - 14, this.y - 11);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+
+                // 4. Draw Sutli Bomb (Green Twine Cracker)
+                else if (this.type === 'sutli') {
+                    const tip = this.getFuseTip();
+                    ctx.strokeStyle = '#FDE047';
+                    ctx.lineWidth = 2.2;
+                    ctx.beginPath();
+                    ctx.moveTo(this.x, this.y - 24);
+                    ctx.quadraticCurveTo(this.x + 4, this.y - 34, tip.x, tip.y);
+                    ctx.stroke();
+
+                    // Green Jute Twine Body
+                    ctx.fillStyle = '#15803D';
+                    ctx.strokeStyle = '#86EFAC';
+                    ctx.lineWidth = 1.4;
+                    ctx.beginPath();
+                    ctx.roundRect(this.x - 14, this.y - 24, 28, 26, 4);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    // Red & Gold Thread Wrappings
+                    ctx.strokeStyle = '#DC2626';
+                    ctx.lineWidth = 2.5;
+                    ctx.beginPath();
+                    ctx.moveTo(this.x - 14, this.y - 16);
+                    ctx.lineTo(this.x + 14, this.y - 16);
+                    ctx.moveTo(this.x - 14, this.y - 6);
+                    ctx.lineTo(this.x + 14, this.y - 6);
+                    ctx.stroke();
+
+                    ctx.strokeStyle = '#FACC15';
+                    ctx.lineWidth = 1.8;
+                    ctx.beginPath();
+                    ctx.moveTo(this.x - 14, this.y - 11);
+                    ctx.lineTo(this.x + 14, this.y - 11);
+                    ctx.stroke();
+                }
+
+                // 5. Draw Akash Rocket (Bottle Rocket)
+                else if (this.type === 'rocket') {
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.tiltAngle * 0.5);
+
+                    // Bamboo Guide Stick
+                    ctx.strokeStyle = '#A16207';
+                    ctx.lineWidth = 2.5;
+                    ctx.beginPath();
+                    ctx.moveTo(3, -15);
+                    ctx.lineTo(3, 28);
+                    ctx.stroke();
+
+                    // Fuse
+                    if (this.state !== 'active') {
+                        ctx.strokeStyle = '#FDE047';
+                        ctx.lineWidth = 1.8;
+                        ctx.beginPath();
+                        ctx.moveTo(-2, 6);
+                        ctx.lineTo(-10 * (1 - this.fuseProgress), 8 + (1 - this.fuseProgress) * 14);
+                        ctx.stroke();
+                    }
+
+                    // Rocket Red Cylinder
+                    ctx.fillStyle = '#DC2626';
+                    ctx.strokeStyle = '#FDE047';
+                    ctx.lineWidth = 1.2;
+                    ctx.fillRect(-6, -16, 12, 22);
+                    ctx.strokeRect(-6, -16, 12, 22);
+
+                    // Golden Nose Cone
+                    ctx.fillStyle = '#FACC15';
+                    ctx.beginPath();
+                    ctx.moveTo(0, -30);
+                    ctx.lineTo(-8, -16);
+                    ctx.lineTo(8, -16);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+
+                // 6. Draw Lads: 100 / 1000 = straight hanging thread, 5000 / 10000 = coiled roll
+                else if (this.isWala()) {
+                    const spec = WALA_SPECS[this.type];
+                    const active = this.state === 'active';
+                    const prog = active ? Math.min(1, 1 - this.activeTimer / this.maxTimer) : 0;
+                    const tier = spec.tier;
+
+                    if (spec.kind === 'thread') {
+                        const len = this.threadLen;
+                        const topY = this.y - len;
+                        const headY = this.y - prog * len;
+
+                        // Hanging peg
+                        ctx.fillStyle = '#FFD700';
+                        ctx.beginPath();
+                        ctx.arc(this.x, topY - 4, 3.2, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        if (!active) {
+                            const tip = this.getFuseTip();
+                            ctx.strokeStyle = '#FDE047';
+                            ctx.lineWidth = 2;
+                            ctx.beginPath();
+                            ctx.moveTo(this.x, this.y);
+                            ctx.lineTo(tip.x, tip.y);
+                            ctx.stroke();
+                        }
+
+                        // Straight twine
+                        ctx.strokeStyle = '#F59E0B';
+                        ctx.lineWidth = 1.5;
+                        ctx.beginPath();
+                        ctx.moveTo(this.x, topY);
+                        ctx.lineTo(this.x, headY);
+                        ctx.stroke();
+
+                        // Crackers in pairs along the thread
+                        const gap = len / spec.pairs;
+                        ctx.fillStyle = '#DC2626';
+                        for (let i = 0; i < spec.pairs; i++) {
+                            const py = topY + 4 + i * gap;
+                            if (py > headY) break;
+                            const jit = active && Math.abs(py - headY) < 12 ? (Math.random() - 0.5) * 2.5 : 0;
+                            ctx.fillRect(this.x - spec.cw - 1 + jit, py - spec.ch / 2, spec.cw, spec.ch);
+                            ctx.fillRect(this.x + 1 + jit, py - spec.ch / 2, spec.cw, spec.ch);
+                        }
+                        if (this.type === 'wala1000') {
+                            ctx.fillStyle = '#FEF08A';
+                            ctx.font = 'bold 8px sans-serif';
+                            ctx.textAlign = 'center';
+                            if (!active) ctx.fillText('1K', this.x, topY - 10);
+                        }
+
+                        if (active) {
+                            const fr = 18 + tier * 7;
+                            const fg = ctx.createRadialGradient(this.x, headY, 1, this.x, headY, fr);
+                            fg.addColorStop(0, 'rgba(255, 255, 230, 0.95)');
+                            fg.addColorStop(0.45, 'rgba(255, 165, 0, 0.6)');
+                            fg.addColorStop(1, 'rgba(255, 50, 0, 0)');
+                            ctx.fillStyle = fg;
+                            ctx.beginPath();
+                            ctx.arc(this.x, headY, fr, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                    } else {
+                        const R = spec.r;
+                        const r0 = R * 0.2;
+                        const Th = spec.turns * Math.PI * 2;
+                        const thB = prog * Th;
+                        const rAt = th => R - (R - r0) * (th / Th);
+
+                        if (!active) {
+                            const tip = this.getFuseTip();
+                            ctx.strokeStyle = '#FDE047';
+                            ctx.lineWidth = 2.2;
+                            ctx.beginPath();
+                            ctx.moveTo(this.x + R, this.y);
+                            ctx.lineTo(tip.x, tip.y);
+                            ctx.stroke();
+                        }
+
+                        ctx.save();
+                        ctx.translate(this.x + (active ? (Math.random() - 0.5) * 1.2 : 0), this.y);
+                        ctx.scale(1, 0.58);
+
+                        ctx.fillStyle = 'rgba(30, 6, 4, 0.55)';
+                        ctx.beginPath();
+                        ctx.arc(0, 0, R + 4, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        const spiral = () => {
+                            ctx.beginPath();
+                            for (let th = thB; th <= Th; th += 0.1) {
+                                const rr = rAt(th);
+                                const px = Math.cos(th) * rr, py = Math.sin(th) * rr;
+                                if (th === thB) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+                            }
+                            ctx.stroke();
+                        };
+                        ctx.lineCap = 'butt';
+                        ctx.strokeStyle = '#B45309';
+                        ctx.lineWidth = spec.cw + 1.5;
+                        spiral();
+                        ctx.strokeStyle = '#DC2626';
+                        ctx.lineWidth = spec.cw;
+                        ctx.setLineDash([5, 2.2]);
+                        spiral();
+                        ctx.setLineDash([]);
+
+                        ctx.fillStyle = '#7F1D1D';
+                        ctx.strokeStyle = '#FFD700';
+                        ctx.lineWidth = 1.5;
+                        ctx.beginPath();
+                        ctx.arc(0, 0, r0 * 0.95, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.stroke();
+                        ctx.restore();
+
+                        ctx.fillStyle = '#FEF08A';
+                        ctx.font = 'bold 9px sans-serif';
+                        ctx.textAlign = 'center';
+                        ctx.fillText(this.type === 'wala5000' ? '5K' : '10K', this.x, this.y + 3);
+
+                        if (active) {
+                            const hx = this.x + Math.cos(thB) * rAt(thB);
+                            const hy = this.y + Math.sin(thB) * rAt(thB) * 0.58;
+                            const fr = 24 + tier * 6;
+                            const fg = ctx.createRadialGradient(hx, hy, 2, hx, hy, fr);
+                            fg.addColorStop(0, 'rgba(255, 255, 240, 0.98)');
+                            fg.addColorStop(0.4, 'rgba(255, 180, 20, 0.7)');
+                            fg.addColorStop(1, 'rgba(255, 60, 0, 0)');
+                            ctx.fillStyle = fg;
+                            ctx.beginPath();
+                            ctx.arc(hx, hy, fr, 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                    }
+                }
+
+                // 8. Draw 12 / 30 / 60 Multi-Shot Sky Battery Boxes
+                else if (this.isMultiShot()) {
+                    const halfW = this.type === 'shot12' ? 18 : (this.type === 'shot30' ? 26 : 34);
+                    const boxH = 24;
+
+                    if (this.state !== 'active') {
+                        const tip = this.getFuseTip();
+                        ctx.strokeStyle = '#FDE047';
+                        ctx.lineWidth = 2;
+                        ctx.beginPath();
+                        ctx.moveTo(this.x - halfW, this.y - boxH + 4);
+                        ctx.lineTo(tip.x, tip.y);
+                        ctx.stroke();
+                    }
+
+                    // Battery Outer Box
+                    ctx.fillStyle = this.type === 'shot60' ? '#581C87' : (this.type === 'shot30' ? '#991B1B' : '#7C2D12');
+                    ctx.strokeStyle = '#FFD700';
+                    ctx.lineWidth = 1.8;
+                    ctx.beginPath();
+                    ctx.roundRect(this.x - halfW, this.y - boxH, halfW * 2, boxH, 3);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    // Gold Tube Dividers & Shot Count Label
+                    ctx.fillStyle = '#FEF08A';
+                    ctx.font = 'bold 7.5px sans-serif';
+                    ctx.textAlign = 'center';
+                    const label = this.type === 'shot12' ? '12 SHOT' : (this.type === 'shot30' ? '30 SHOT' : '60 SHOT');
+                    ctx.fillText(label, this.x, this.y - 9);
+
+                    if (this.muzzleGlow > 0.03) {
+                        const mg = ctx.createRadialGradient(this.x, this.y - boxH, 2, this.x, this.y - boxH, 70);
+                        mg.addColorStop(0, `rgba(255, 230, 150, ${0.7 * this.muzzleGlow})`);
+                        mg.addColorStop(0.5, `rgba(255, 130, 20, ${0.25 * this.muzzleGlow})`);
+                        mg.addColorStop(1, 'rgba(255, 80, 0, 0)');
+                        ctx.fillStyle = mg;
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y - boxH, 70, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+
+                // Subtle unlit wick indicator ring
+                if (this.state === 'unlit') {
+                    const tip = this.getFuseTip();
+                    const pulse = 3.5 + Math.sin(this.flameFlicker * 0.8) * 1.5;
+                    ctx.strokeStyle = 'rgba(255, 215, 0, 0.65)';
+                    ctx.lineWidth = 1.4;
+                    ctx.beginPath();
+                    ctx.arc(tip.x, tip.y, pulse, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+
+                ctx.restore();
+            }
+        }
+
+        /**
+         * ============================================================================
+         * 5. INITIAL FESTIVE COURTYARD SCENE (Responsive Across Mobile, Tablet & PC)
+         * ============================================================================
+         */
+        function populateDefaultCourtyard() {
+            resizeCanvas();
+            items.length = 0;
+            aerialShells.length = 0;
+            sparks.length = 0;
+            shockwaves.length = 0;
+            layoutDirty = false;
+            if (audio.stopTrains) audio.stopTrains();
+
+            // Usable courtyard band: between the horizon and the top of the dock
+            const areaTop = floorY + 30;
+            const areaBottom = getDockTop() - 12;
+            const span = Math.max(70, areaBottom - areaTop);
+
+            // Two clean rows: crackers on one shared baseline, diyas on a lower baseline in the gaps between crackers
+            const crackerBase = areaTop + span * 0.52;
+            const diyaY = Math.min(areaBottom - 16, areaTop + span * 0.9);
+
+            const rowW = Math.min(width * 0.94, 780);
+            const colW = rowW / 5;
+            const cx = width / 2;
+
+            // [type, baseline offset so every cracker's bottom sits on the same line]
+            const crackers = [
+                ['chakri', -10],
+                ['anaar', 0],
+                ['wala1000', -6],
+                ['rocket', -28],
+                ['shot12', 0]
+            ];
+            crackers.forEach(([type, off], i) => {
+                items.push(new DiwaliItem(type, cx + (i - 2) * colW, crackerBase + off, true));
+            });
+
+            for (let j = 0; j < 4; j++) {
+                const diya = new DiwaliItem('diya', cx + (j - 1.5) * colW - 1, diyaY, true);
+                if (j === 1 || j === 2) diya.state = 'active';
+                items.push(diya);
+            }
+
+            items.sort((a, b) => a.y - b.y);
+        }
+
+        /**
+         * ============================================================================
+         * 6. MOBILE-FRIENDLY INTERACTION        /**
+         * ============================================================================
+         * 6. MOBILE-FRIENDLY INTERACTION & INPUT HANDLERS
+         * Enlarged mobile touch hitboxes + swipe-to-ignite so mobile feels effortless!
+         * ============================================================================
+         */
+        function checkFuseProximity(px, py) {
+            for (const item of items) {
+                if (item.state === 'unlit') {
+                    const tip = item.getFuseTip();
+                    const distTip = Math.hypot(px - tip.x, py - tip.y);
+                    const distBody = Math.hypot(px - item.x, py - (item.y - 12));
+                    // Generous 48px ignition radius so mobile fingers never miss the fuse
+                    if (distTip < 48 || (activeTool === 'sparkler' && distBody < 42)) {
+                        item.igniteFuse();
+                    }
+                }
+            }
+        }
+
+        function handlePointerDown(x, y) {
+            audio.init();
+            pointer.x = x;
+            pointer.y = y;
+            pointer.active = true;
+
+            // In Big Pooja Diya Mode: Tap near the wick to light or tap the bowl to ring the Pooja Bell & send golden ripples
+            if (appMode === 'pooja') {
+                const wickPos = getPoojaWickPos();
+                const distToWick = Math.hypot(x - wickPos.x, y - wickPos.y);
+                if (!poojaDiya.lit && distToWick < 95) {
+                    poojaDiya.lit = true;
+                    poojaDiya.flameHeightScale = 0.2;
+                    audio.playPoojaBell();
+                    for (let i = 0; i < 28; i++) {
+                        const ang = Math.random() * Math.PI * 2;
+                        const spd = 1.5 + Math.random() * 5;
+                        sparks.push(new Spark(wickPos.x, wickPos.y, Math.cos(ang) * spd, Math.sin(ang) * spd - 1.5, '#FFD700', 2.4, 0.03, 0.04));
+                    }
+                } else if (poojaDiya.lit && distToWick < 130) {
+                    // Gently fan the flame & chime sacred bell on touch
+                    poojaDiya.windVelocity += (x < wickPos.x ? 0.14 : -0.14);
+                    audio.playPoojaBell();
+                    poojaDiya.oilRipples.push({ r: 4, alpha: 0.85 });
+                }
+                return;
+            }
+
+            // 1. First check if user tapped near ANY unlit cracker/diya to ignite it immediately
+            for (const item of items) {
+                if (item.state === 'unlit') {
+                    const tip = item.getFuseTip();
+                    const distTip = Math.hypot(x - tip.x, y - tip.y);
+                    const distBody = Math.hypot(x - item.x, y - (item.y - 14));
+                    if (distTip < 54 || distBody < 46) {
+                        layoutDirty = true;
+                        item.igniteFuse();
+                        return;
+                    }
+                }
+            }
+
+            // 2. If user has selected a Diya or Cracker from the dock, place it on the floor
+            if (activeTool !== 'sparkler' && y > floorY - 40 && y < getDockTop() - 6) {
+                layoutDirty = true;
+                const newItem = new DiwaliItem(activeTool, x, y);
+                items.push(newItem);
+                items.sort((a, b) => a.y - b.y);
+
+                for (let i = 0; i < 8; i++) {
+                    const ang = Math.random() * Math.PI * 2;
+                    sparks.push(new Spark(x, y, Math.cos(ang) * 2, Math.sin(ang) * 1.5, '#FFD700', 1.6, 0.06));
+                }
+            }
+        }
+
+        function handlePointerMove(x, y) {
+            const dx = x - pointer.x;
+            const dy = y - pointer.y;
+            pointer.vx = dx;
+            pointer.vy = dy;
+            pointer.x = x;
+            pointer.y = y;
+            pointer.active = true;
+
+            if (appMode === 'pooja') {
+                const wickPos = getPoojaWickPos();
+                const dist = Math.hypot(x - wickPos.x, y - wickPos.y);
+                if (!poojaDiya.lit && dist < 75) {
+                    poojaDiya.lit = true;
+                    poojaDiya.flameHeightScale = 0.25;
+                    audio.playPoojaBell();
+                } else if (poojaDiya.lit && dist < 160) {
+                    // Passing hand or sparkler near the flame makes it sway smoothly like real air draft!
+                    poojaDiya.windVelocity += Math.max(-0.08, Math.min(0.08, dx * 0.0025));
+                }
+                return;
+            }
+
+            checkFuseProximity(x, y);
+        }
+
+        canvas.addEventListener('mousedown', (e) => handlePointerDown(e.clientX, e.clientY));
+        canvas.addEventListener('mousemove', (e) => handlePointerMove(e.clientX, e.clientY));
+
+        canvas.addEventListener('touchstart', (e) => {
+            if (e.cancelable) e.preventDefault();
+            if (e.touches.length > 0) {
+                handlePointerDown(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: false });
+
+        canvas.addEventListener('touchmove', (e) => {
+            if (e.cancelable) e.preventDefault();
+            if (e.touches.length > 0) {
+                handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: false });
+
+        // Mode Switch Buttons (Courtyard vs Big Pooja Diya)
+        const courtyardModeBtn = document.getElementById('courtyardModeBtn');
+        const poojaModeBtn = document.getElementById('poojaModeBtn');
+        const crackerDock = document.getElementById('crackerDock');
+
+        courtyardModeBtn.addEventListener('click', () => {
+            audio.init();
+            appMode = 'courtyard';
+            courtyardModeBtn.classList.add('active');
+            poojaModeBtn.classList.remove('active');
+            crackerDock.classList.remove('dock-hidden');
+        });
+
+        poojaModeBtn.addEventListener('click', () => {
+            audio.init();
+            appMode = 'pooja';
+            poojaModeBtn.classList.add('active');
+            courtyardModeBtn.classList.remove('active');
+            crackerDock.classList.add('dock-hidden');
+            if (poojaDiya.lit) audio.playPoojaBell();
+        });
+
+        // Tool Dock Selection
+        const toolButtons = document.querySelectorAll('[data-tool]');
+        toolButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                audio.init();
+                toolButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeTool = btn.getAttribute('data-tool');
+                const target = btn.offsetLeft - (dockScroll.clientWidth - btn.offsetWidth) / 2;
+                dockScroll.scrollTo({ left: target, behavior: 'smooth' });
+            });
+        });
+
+        // Dock scrolling: touch works natively; mouse gets drag + wheel; edge fades show more items
+        const dockScroll = document.getElementById('dockScroll');
+        function updateDockFade() {
+            const max = dockScroll.scrollWidth - dockScroll.clientWidth;
+            dockScroll.classList.toggle('fade-l', dockScroll.scrollLeft > 4);
+            dockScroll.classList.toggle('fade-r', dockScroll.scrollLeft < max - 4);
+        }
+        dockScroll.addEventListener('scroll', updateDockFade, { passive: true });
+        dockScroll.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                dockScroll.scrollLeft += e.deltaY;
+                e.preventDefault();
+            }
+        }, { passive: false });
+        let dockDrag = false, dockMoved = false, dockStartX = 0, dockStartScroll = 0;
+        dockScroll.addEventListener('mousedown', (e) => {
+            dockDrag = true; dockMoved = false;
+            dockStartX = e.pageX; dockStartScroll = dockScroll.scrollLeft;
+        });
+        window.addEventListener('mousemove', (e) => {
+            if (!dockDrag) return;
+            const dx = e.pageX - dockStartX;
+            if (Math.abs(dx) > 5) dockMoved = true;
+            dockScroll.scrollLeft = dockStartScroll - dx;
+        });
+        window.addEventListener('mouseup', () => { dockDrag = false; });
+        dockScroll.addEventListener('click', (e) => {
+            if (dockMoved) { e.stopPropagation(); e.preventDefault(); dockMoved = false; }
+        }, true);
+        updateDockFade();
+
+        // Sound Mute Toggle
+        const soundToggleBtn = document.getElementById('soundToggleBtn');
+        const soundOnIcon = document.getElementById('soundOnIcon');
+        const soundOffIcon = document.getElementById('soundOffIcon');
+        soundToggleBtn.addEventListener('click', () => {
+            audio.init();
+            audio.muted = !audio.muted;
+            soundOnIcon.classList.toggle('hidden', audio.muted);
+            soundOffIcon.classList.toggle('hidden', !audio.muted);
+        });
+
+        // Reset Button (In Pooja Mode: toggles unlit/lit so user can re-light the big Diya!)
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            audio.init();
+            if (appMode === 'pooja') {
+                poojaDiya.lit = false;
+                poojaDiya.flameHeightScale = 0;
+            } else {
+                populateDefaultCourtyard();
+            }
+        });
+
+        /**
+         * ============================================================================
+         * 7. BIG SACRED POOJA DIYA RENDERER (Real-Time Multi-Layered Fluid Flame)
+         * ============================================================================
+         */
+        function getPoojaWickPos() {
+            const scale = Math.min(width, height) < 500 ? 0.78 : 1.05;
+            const cx = width / 2;
+            const cy = height * 0.62;
+            return {
+                x: cx + 78 * scale,
+                y: cy - 38 * scale,
+                scale,
+                cx,
+                cy
+            };
+        }
+
+        function drawPoojaDiyaScene() {
+            poojaDiya.time += 0.035;
+            const t = poojaDiya.time;
+            const { x: wickX, y: wickY, scale, cx, cy } = getPoojaWickPos();
+
+            // Spring-damper physics for air currents affecting the flame
+            const naturalDraft = Math.sin(t * 1.1) * 0.04 + Math.sin(t * 2.7) * 0.025 + Math.cos(t * 4.3) * 0.015;
+            const targetWind = naturalDraft;
+            poojaDiya.windVelocity += (targetWind - poojaDiya.windAngle) * 0.04;
+            poojaDiya.windVelocity *= 0.90; // Damping
+            poojaDiya.windAngle += poojaDiya.windVelocity;
+
+            if (poojaDiya.lit && poojaDiya.flameHeightScale < 1) {
+                poojaDiya.flameHeightScale = Math.min(1, poojaDiya.flameHeightScale + 0.035);
+            }
+
+            const lightPower = poojaDiya.lit ? poojaDiya.flameHeightScale : 0.04;
+            const breath = 1 + Math.sin(t * 3.2) * 0.035 + Math.cos(t * 5.8) * 0.015;
+
+            // 1. Deep Dark Sanctum Background with Warm Radial Room Illumination
+            ctx.fillStyle = '#040203';
+            ctx.fillRect(0, 0, width, height);
+
+            const roomGlowRadius = Math.max(width, height) * (0.75 * lightPower * breath);
+            if (roomGlowRadius > 5) {
+                const roomGrad = ctx.createRadialGradient(wickX, wickY - 60 * scale, 10, wickX, cy, roomGlowRadius);
+                roomGrad.addColorStop(0, `rgba(255, 195, 70, ${0.42 * lightPower})`);
+                roomGrad.addColorStop(0.35, `rgba(215, 85, 10, ${0.22 * lightPower})`);
+                roomGrad.addColorStop(0.7, `rgba(95, 22, 5, ${0.12 * lightPower})`);
+                roomGrad.addColorStop(1, 'rgba(4, 2, 3, 0)');
+                ctx.fillStyle = roomGrad;
+                ctx.fillRect(0, 0, width, height);
+            }
+
+            // 2. Rotating Sacred Brass Prabha Mandala Behind the Diya
+            ctx.save();
+            ctx.translate(cx, cy + 55 * scale);
+            ctx.scale(1, 0.36);
+            ctx.rotate(t * 0.08);
+            const mandalaAlpha = 0.12 + 0.25 * lightPower;
+            ctx.strokeStyle = `rgba(255, 195, 55, ${mandalaAlpha})`;
+            ctx.lineWidth = 2;
+            for (let i = 0; i < 16; i++) {
+                ctx.rotate(Math.PI / 8);
+                ctx.beginPath();
+                ctx.ellipse(110 * scale, 0, 68 * scale, 26 * scale, 0, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+            ctx.beginPath();
+            ctx.arc(0, 0, 195 * scale, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.restore();
+
+            // 3. Ornate Brass Pedestal Base
+            ctx.save();
+            ctx.translate(cx, cy);
+
+            // Floor shadow / golden reflection pool
+            const floorPool = ctx.createRadialGradient(0, 72 * scale, 10, 0, 72 * scale, 180 * scale);
+            floorPool.addColorStop(0, `rgba(255, 165, 30, ${0.35 * lightPower})`);
+            floorPool.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            ctx.fillStyle = floorPool;
+            ctx.beginPath();
+            ctx.ellipse(0, 72 * scale, 180 * scale, 42 * scale, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Brass Stem & Lotus Base
+            const brassGrad = ctx.createLinearGradient(-90 * scale, 0, 90 * scale, 0);
+            brassGrad.addColorStop(0, '#5C2209');
+            brassGrad.addColorStop(0.3, '#B45309');
+            brassGrad.addColorStop(0.5, '#F59E0B');
+            brassGrad.addColorStop(0.7, '#B45309');
+            brassGrad.addColorStop(1, '#451A03');
+
+            ctx.fillStyle = brassGrad;
+            ctx.strokeStyle = '#FDE047';
+            ctx.lineWidth = 1.8 * scale;
+            ctx.beginPath();
+            ctx.ellipse(0, 65 * scale, 78 * scale, 18 * scale, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // Carved Diya Bowl (Deep Terracotta & Brass Rim)
+            const bowlGrad = ctx.createLinearGradient(-110 * scale, -35 * scale, 110 * scale, 55 * scale);
+            bowlGrad.addColorStop(0, '#7C2D12');
+            bowlGrad.addColorStop(0.45, '#B83B14');
+            bowlGrad.addColorStop(0.8, '#7C2D12');
+            bowlGrad.addColorStop(1, '#431407');
+
+            ctx.fillStyle = bowlGrad;
+            ctx.strokeStyle = '#FBBF24';
+            ctx.lineWidth = 2.5 * scale;
+            ctx.beginPath();
+            ctx.moveTo(-105 * scale, -28 * scale);
+            ctx.bezierCurveTo(-95 * scale, 52 * scale, 85 * scale, 58 * scale, 112 * scale, -32 * scale);
+            ctx.lineTo(75 * scale, -36 * scale);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+
+            // Decorative Carved Lotus Petals on Diya Bowl
+            ctx.strokeStyle = 'rgba(253, 224, 71, 0.45)';
+            ctx.lineWidth = 1.5 * scale;
+            for (let i = -3; i <= 3; i++) {
+                const px = i * 24 * scale;
+                ctx.beginPath();
+                ctx.moveTo(px, -18 * scale);
+                ctx.quadraticCurveTo(px, 24 * scale, px * 0.6, 36 * scale);
+                ctx.stroke();
+            }
+
+            // Warm Ghee / Sesame Oil Reservoir Inside the Diya
+            const oilGrad = ctx.createRadialGradient(45 * scale, -30 * scale, 5, 0, -30 * scale, 105 * scale);
+            oilGrad.addColorStop(0, poojaDiya.lit ? '#F59E0B' : '#78350F');
+            oilGrad.addColorStop(0.55, '#7C2D12');
+            oilGrad.addColorStop(1, '#3B0D04');
+
+            ctx.fillStyle = oilGrad;
+            ctx.strokeStyle = '#FFD700';
+            ctx.lineWidth = 3 * scale;
+            ctx.beginPath();
+            ctx.ellipse(4 * scale, -30 * scale, 106 * scale, 22 * scale, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.stroke();
+
+            // Oil Surface Shimmer Ripples
+            for (let i = poojaDiya.oilRipples.length - 1; i >= 0; i--) {
+                const rp = poojaDiya.oilRipples[i];
+                rp.r += 1.4;
+                rp.alpha -= 0.018;
+                if (rp.alpha <= 0) {
+                    poojaDiya.oilRipples.splice(i, 1);
+                    continue;
+                }
+                ctx.strokeStyle = `rgba(255, 230, 130, ${rp.alpha})`;
+                ctx.lineWidth = 1.2;
+                ctx.beginPath();
+                ctx.ellipse(25 * scale, -30 * scale, rp.r * scale, rp.r * 0.22 * scale, 0, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+
+            // Thick Braided Cotton Wick Emerging from Spout
+            ctx.strokeStyle = poojaDiya.lit ? '#451A03' : '#FEF08A';
+            ctx.lineWidth = 6.5 * scale;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(48 * scale, -28 * scale);
+            ctx.quadraticCurveTo(68 * scale, -32 * scale, 78 * scale, -38 * scale);
+            ctx.stroke();
+
+            // Glowing Ember Tip on Wick
+            if (poojaDiya.lit) {
+                ctx.fillStyle = '#FF4500';
+                ctx.beginPath();
+                ctx.arc(78 * scale, -38 * scale, 4.5 * scale, 0, Math.PI * 2);
+                ctx.fill();
+            } else {
+                // Pulsing ring inviting user to touch wick with Phuljhari
+                const pulse = (8 + Math.sin(t * 4) * 3) * scale;
+                ctx.strokeStyle = 'rgba(255, 215, 0, 0.75)';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.arc(78 * scale, -38 * scale, pulse, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+            ctx.restore();
+
+            // 4. REAL-TIME MULTI-LAYERED FLUID FLAME ANIMATION
+            if (poojaDiya.lit && poojaDiya.flameHeightScale > 0.01) {
+                ctx.save();
+                ctx.globalCompositeOperation = 'lighter';
+
+                const fh = 155 * scale * poojaDiya.flameHeightScale * breath;
+                const fw = 36 * scale * poojaDiya.flameHeightScale;
+
+                // Smooth organic multi-harmonic wave along the height of the flame
+                const tipSwayX = Math.sin(t * 3.4) * 9 * scale
+                              + Math.cos(t * 6.1) * 4.5 * scale
+                              + poojaDiya.windAngle * 190 * scale;
+                const midSwayX = Math.sin(t * 3.4 - 0.7) * 4 * scale
+                              + poojaDiya.windAngle * 75 * scale;
+                const tipStretchY = Math.sin(t * 5.2) * 7 * scale;
+
+                // Soft bloom halo around the entire flame
+                const haloGrad = ctx.createRadialGradient(
+                    wickX + midSwayX, wickY - fh * 0.45, 4,
+                    wickX + midSwayX, wickY - fh * 0.45, fh * 1.45
+                );
+                haloGrad.addColorStop(0, 'rgba(255, 210, 90, 0.55)');
+                haloGrad.addColorStop(0.4, 'rgba(255, 105, 0, 0.22)');
+                haloGrad.addColorStop(1, 'rgba(255, 50, 0, 0)');
+                ctx.fillStyle = haloGrad;
+                ctx.beginPath();
+                ctx.arc(wickX + midSwayX, wickY - fh * 0.45, fh * 1.45, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Helper to draw smooth Bezier teardrop flame layers
+                const drawFlameLayer = (widthScale, heightScale, swayFactor, gradColors) => {
+                    const lw = fw * widthScale;
+                    const lh = (fh + tipStretchY) * heightScale;
+                    const tx = wickX + tipSwayX * swayFactor;
+                    const ty = wickY - lh;
+                    const mx = wickX + midSwayX * swayFactor;
+
+                    const g = ctx.createLinearGradient(wickX, wickY + 8 * scale, tx, ty);
+                    gradColors.forEach(([stop, col]) => g.addColorStop(stop, col));
+
+                    ctx.fillStyle = g;
+                    ctx.beginPath();
+                    ctx.moveTo(wickX, wickY + 4 * scale);
+                    // Left belly to tip
+                    ctx.bezierCurveTo(
+                        wickX - lw * 1.15, wickY - lh * 0.22,
+                        mx - lw * 0.65, wickY - lh * 0.72,
+                        tx, ty
+                    );
+                    // Tip back down right belly
+                    ctx.bezierCurveTo(
+                        mx + lw * 0.65, wickY - lh * 0.72,
+                        wickX + lw * 1.15, wickY - lh * 0.22,
+                        wickX, wickY + 4 * scale
+                    );
+                    ctx.closePath();
+                    ctx.fill();
+                };
+
+                // Layer 1: Outer Deep Saffron-Crimson Aura
+                drawFlameLayer(1.22, 1.06, 1.08, [
+                    [0, 'rgba(255, 60, 0, 0.15)'],
+                    [0.3, 'rgba(255, 95, 0, 0.65)'],
+                    [0.85, 'rgba(255, 160, 20, 0.35)'],
+                    [1, 'rgba(255, 200, 50, 0)']
+                ]);
+
+                // Layer 2: Primary Rich Golden-Marigold Body
+                drawFlameLayer(0.92, 0.94, 0.95, [
+                    [0, 'rgba(30, 90, 255, 0.45)'], // Subtle oxygen-rich blue base near wick
+                    [0.18, 'rgba(255, 140, 0, 0.88)'],
+                    [0.65, 'rgba(255, 215, 40, 0.92)'],
+                    [1, 'rgba(255, 240, 150, 0.1)']
+                ]);
+
+                // Layer 3: Radiant White-Hot Inner Core
+                drawFlameLayer(0.52, 0.66, 0.7, [
+                    [0, 'rgba(120, 180, 255, 0.55)'],
+                    [0.25, 'rgba(255, 250, 220, 0.98)'],
+                    [0.8, 'rgba(255, 240, 170, 0.85)'],
+                    [1, 'rgba(255, 220, 100, 0)']
+                ]);
+
+                // Occasional gentle sacred prana embers floating upward from the flame tip
+                if (Math.random() < 0.14) {
+                    sparks.push(new Spark(
+                        wickX + tipSwayX * 0.8 + (Math.random() - 0.5) * 6,
+                        wickY - fh * 0.85,
+                        (Math.random() - 0.5) * 0.45 + poojaDiya.windAngle * 2,
+                        -1.1 - Math.random() * 1.1,
+                        '#FFD700',
+                        1.8,
+                        0.018,
+                        -0.015
+                    ));
+                }
+
+                ctx.restore();
+            }
+        }
+
+        /**
+         * ============================================================================
+         * 8. RENDERING COURTYARD, RANGOLI MANDALA & PHULJHARI SPARKLER
+         * ============================================================================
+         */
+        function drawBackgroundAndCourtyard(litDiyaCount) {
+            // Pure Light Celebration: Room illumination grows with every lit Diya & Cracker (Zero Smoke)
+            const ambientBoost = Math.min(1, (litDiyaCount * 0.12) + (sparks.length * 0.0018) + screenFlash);
+
+            // Deep Night Sky to Warm Illuminated Courtyard Gradient
+            const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
+            bgGrad.addColorStop(0, '#040203');
+            bgGrad.addColorStop(0.58, `rgb(${16 + ambientBoost * 45}, ${6 + ambientBoost * 18}, ${8 + ambientBoost * 8})`);
+            bgGrad.addColorStop(1, `rgb(${28 + ambientBoost * 65}, ${10 + ambientBoost * 26}, ${6 + ambientBoost * 10})`);
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, width, height);
+
+            // Screen Flash overlay from Sutli Bomb / Sky bursts
+            if (screenFlash > 0.01) {
+                ctx.fillStyle = `rgba(${screenFlashColor}, ${screenFlash * 0.35})`;
+                ctx.fillRect(0, 0, width, height);
+                // light spilling across the courtyard floor in the colour of the burst
+                const fg = ctx.createLinearGradient(0, floorY, 0, height);
+                fg.addColorStop(0, `rgba(${screenFlashColor}, ${screenFlash * 0.22})`);
+                fg.addColorStop(1, `rgba(${screenFlashColor}, ${screenFlash * 0.05})`);
+                ctx.fillStyle = fg;
+                ctx.fillRect(0, floorY, width, height - floorY);
+                screenFlash *= 0.86;
+            }
+
+            // Courtyard Horizon Divider Line
+            ctx.strokeStyle = `rgba(255, 180, 40, ${0.18 + ambientBoost * 0.25})`;
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.moveTo(0, floorY);
+            ctx.lineTo(width, floorY);
+            ctx.stroke();
+
+            // Subtle Traditional Floor Rangoli Mandala in Center of Courtyard
+            ctx.save();
+            ctx.translate(width / 2, floorY + (height - floorY) * 0.42);
+            ctx.scale(1, 0.42);
+            const rangoliAlpha = 0.12 + ambientBoost * 0.22;
+            ctx.strokeStyle = `rgba(255, 190, 40, ${rangoliAlpha})`;
+            ctx.lineWidth = 2;
+
+            for (let i = 0; i < 12; i++) {
+                ctx.rotate(Math.PI / 6);
+                ctx.beginPath();
+                ctx.ellipse(48, 0, 32, 14, 0, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+            ctx.beginPath();
+            ctx.arc(0, 0, 88, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function drawLivePhuljhari() {
+            const x = pointer.x;
+            const y = pointer.y;
+
+            // Emit continuous live Phuljhari sparks from tip
+            for (let i = 0; i < 2; i++) {
+                const ang = Math.random() * Math.PI * 2;
+                const spd = 1.2 + Math.random() * 3.8;
+                sparks.push(new Spark(
+                    x,
+                    y,
+                    Math.cos(ang) * spd,
+                    Math.sin(ang) * spd,
+                    Math.random() > 0.3 ? '#FFD700' : '#FFFBEB',
+                    1.5,
+                    0.075,
+                    0.08
+                ));
+            }
+            if (Math.random() < 0.18) {
+                audio.playSparkPop(3800, 0.015);
+            }
+
+            ctx.save();
+            // Hand-held Phuljhari stem
+            ctx.strokeStyle = '#9CA3AF';
+            ctx.lineWidth = 3.5;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(x + 28, y + 28);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+
+            // Glowing tip halo
+            const g = ctx.createRadialGradient(x, y, 1, x, y, 42);
+            g.addColorStop(0, 'rgba(255, 250, 210, 0.95)');
+            g.addColorStop(0.35, 'rgba(255, 180, 0, 0.45)');
+            g.addColorStop(1, 'rgba(255, 100, 0, 0)');
+            ctx.fillStyle = g;
+            ctx.beginPath();
+            ctx.arc(x, y, 42, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        /**
+         * ============================================================================
+         * 8. MAIN ANIMATION LOOP
+         * ============================================================================
+         */
+        function animate() {
+            if (appMode === 'pooja') {
+                drawPoojaDiyaScene();
+            } else {
+                // Count active Diyas for real-time room brightness
+                let litDiyas = 0;
+                for (let i = items.length - 1; i >= 0; i--) {
+                    if (items[i].type === 'diya' && items[i].state === 'active') litDiyas++;
+                    if (items[i].state === 'done') items.splice(i, 1);
+                }
+
+                drawBackgroundAndCourtyard(litDiyas);
+
+                // Update & Render Items (Diyas & Crackers)
+                for (const item of items) {
+                    item.update();
+                    item.draw(ctx);
+                }
+            }
+
+            // Update & Render Shockwaves, Aerial Shells, and Sparks with Additive Blending
+            ctx.save();
+            ctx.globalCompositeOperation = 'lighter';
+
+            for (let i = aerialShells.length - 1; i >= 0; i--) {
+                aerialShells[i].update();
+                aerialShells[i].draw(ctx);
+                if (aerialShells[i].done) aerialShells.splice(i, 1);
+            }
+
+            for (let i = shockwaves.length - 1; i >= 0; i--) {
+                shockwaves[i].update();
+                shockwaves[i].draw(ctx);
+                if (shockwaves[i].alpha <= 0) shockwaves.splice(i, 1);
+            }
+
+            if (sparks.length > 3200) sparks.splice(0, sparks.length - 3200);
+            for (let i = sparks.length - 1; i >= 0; i--) {
+                sparks[i].update();
+                sparks[i].draw(ctx);
+                if (sparks[i].alpha <= 0) sparks.splice(i, 1);
+            }
+
+            // Show live Phuljhari in Courtyard mode, or in Pooja mode when the big Diya is unlit
+            if (appMode === 'courtyard' || !poojaDiya.lit) {
+                drawLivePhuljhari();
+            }
+            ctx.restore();
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            resizeCanvas();
+            populateDefaultCourtyard();
+            updateDockFade();
+            animate();
+        });
+        // Re-align once fonts/styles have settled so the dock height is exact
+        window.addEventListener('load', () => {
+            if (!layoutDirty) populateDefaultCourtyard();
+            updateDockFade();
+        });
+
+        // Dark-room comfort: keep the screen awake and dim the UI when idle
+        (async () => {
+            try { if ('wakeLock' in navigator) await navigator.wakeLock.request('screen'); } catch (e) {}
+        })();
+        document.addEventListener('visibilitychange', async () => {
+            if (document.visibilityState === 'visible') {
+                try { if ('wakeLock' in navigator) await navigator.wakeLock.request('screen'); } catch (e) {}
+            }
+        });
+        let idleTimer = null;
+        function wakeUI() {
+            document.documentElement.classList.remove('ui-dim');
+            clearTimeout(idleTimer);
+            idleTimer = setTimeout(() => document.documentElement.classList.add('ui-dim'), 6000);
+        }
+        ['pointerdown', 'pointermove', 'touchstart', 'keydown'].forEach(ev => window.addEventListener(ev, wakeUI, { passive: true }));
+        wakeUI();
+    </script>
+</body>
+</html>
